@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fine-Grained Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</title>
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg0:#0d1117;--bg1:#161b22;--bg2:#21262d;--bd:#30363d;
+  --t1:#e6edf3;--t2:#8b949e;--t3:#6e7681;
+  --red:#f85149;--redDk:#da3633;--blue:#58a6ff;--blueDk:#388bfd;
+  --green:#3fb950;--purple:#bc8cff;--orange:#d29922;--gray:#6e7681;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg0);color:var(--t1);display:flex;flex-direction:column}
+
+.hdr{background:var(--bg1);border-bottom:1px solid var(--bd);padding:8px 18px;flex-shrink:0}
+.hdr h1{font-size:14px;font-weight:600;letter-spacing:-.2px}
+.hdr .sub{font-size:10px;color:var(--t2);margin-top:2px;line-height:1.4}
+.hdr .updated{font-size:9px;color:var(--t3);margin-top:1px}
+
+.tb{background:var(--bg1);border-bottom:1px solid var(--bd);padding:6px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex-shrink:0;overflow-x:auto}
+.tg{display:flex;align-items:center;gap:4px}
+.tl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-right:1px;white-space:nowrap}
+.tv{width:1px;height:20px;background:var(--bd);flex-shrink:0}
+.btn{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:12px;border:1px solid var(--bd);background:var(--bg2);color:var(--t2);font-size:10px;cursor:pointer;transition:all .15s;user-select:none;white-space:nowrap;font-family:inherit}
+.btn:hover{border-color:var(--t3)}
+.btn.on{color:var(--t1);border-color:var(--t3)}
+.btn .d{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.btn:not(.on) .d{opacity:.3}
+.pb{padding:2px 9px;border-radius:12px;border:1px solid var(--bd);background:var(--bg2);color:var(--t2);font-size:10px;cursor:pointer;transition:all .15s;user-select:none;white-space:nowrap;font-family:inherit}
+.pb.on{background:var(--purple);color:#fff;border-color:var(--purple)}
+.pb:hover:not(.on){border-color:var(--t3)}
+.si{padding:2px 8px;border-radius:12px;border:1px solid var(--bd);background:var(--bg2);color:var(--t1);font-size:10px;outline:none;width:120px;font-family:inherit}
+.si::placeholder{color:var(--t3)}.si:focus{border-color:var(--blue)}
+.rb{padding:2px 8px;border-radius:12px;border:1px solid var(--bd);background:var(--bg2);color:var(--t3);font-size:10px;cursor:pointer;font-family:inherit}
+.rb:hover{color:var(--t2);border-color:var(--t3)}
+.play-btn{padding:2px 10px;border-radius:12px;border:1px solid var(--green);background:rgba(63,185,80,.1);color:var(--green);font-size:10px;cursor:pointer;font-family:inherit;font-weight:600;transition:all .15s}
+.play-btn:hover{background:rgba(63,185,80,.2)}
+.play-btn.running{border-color:var(--orange);color:var(--orange);background:rgba(210,153,34,.1)}
+
+.main{display:flex;flex:1;min-height:0}
+#wrap{flex:1;position:relative;overflow:hidden}
+#net{width:100%;height:100%}
+#loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--t2);font-size:12px;z-index:200;pointer-events:none;text-align:center;line-height:1.6}
+#loadError{display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--red);font-size:13px;z-index:200;text-align:center;max-width:400px;line-height:1.5}
+
+.sb{width:0;overflow:hidden;background:var(--bg1);border-left:1px solid var(--bd);transition:width .3s ease;flex-shrink:0}
+.sb.open{width:300px}
+.sbi{width:300px;padding:12px;overflow-y:auto;height:100%}
+.sbh{position:relative;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
+.sbh h2{font-size:14px;font-weight:600;padding-right:22px}
+.sbh .nt{font-size:10px;color:var(--t2);margin-top:2px}
+.sbh .handle{font-size:10px;color:var(--t3);margin-top:1px;font-family:monospace}
+.sx{position:absolute;top:0;right:0;background:none;border:none;color:var(--t2);font-size:18px;cursor:pointer;line-height:1;padding:0}
+.sx:hover{color:var(--t1)}
+.ss{margin-bottom:12px}
+.ss h3{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:700}
+.ss p{font-size:11px;color:var(--t2);line-height:1.5}
+.cluster-tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase}
+.cluster-tag.red{background:rgba(248,81,73,.15);color:var(--red)}
+.cluster-tag.blue{background:rgba(88,166,255,.15);color:var(--blue)}
+.cluster-tag.gray{background:rgba(110,118,129,.15);color:var(--gray)}
+.ei{display:flex;align-items:flex-start;gap:6px;padding:4px 0;border-bottom:1px solid var(--bd);font-size:11px}
+.ei:last-child{border-bottom:none}
+.eb{padding:1px 4px;border-radius:3px;font-size:8px;font-weight:700;text-transform:uppercase;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.eb.attacks{background:rgba(248,81,73,.15);color:var(--red)}
+.eb.defends{background:rgba(88,166,255,.15);color:var(--blue)}
+.eb.past_collab{background:rgba(63,185,80,.15);color:var(--green)}
+.eb.debates{background:rgba(188,140,255,.15);color:var(--purple)}
+.eb.blocks{background:rgba(210,153,34,.15);color:var(--orange)}
+.eb.questions,.eb.mentions{background:rgba(110,118,129,.15);color:var(--gray)}
+.ei-n{font-size:10px;color:var(--t3);margin-top:1px}
+.ei-ts{font-size:9px;color:var(--purple);margin-top:1px;font-family:monospace}
+
+.leg{position:absolute;bottom:10px;left:10px;background:var(--bg1);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;font-size:10px;z-index:100}
+.leg h4{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:700}
+.li{display:flex;align-items:center;gap:6px;margin-bottom:2px;color:var(--t2)}
+.li:last-child{margin-bottom:0}
+.ll{width:18px;height:2px;flex-shrink:0;border-radius:1px}
+.ll.da{border-top:2px dashed;height:0;background:none}
+
+.ib{position:absolute;bottom:10px;right:10px;background:var(--bg1);border:1px solid var(--bd);border-radius:8px;padding:4px 9px;font-size:10px;color:var(--t2);cursor:pointer;z-index:101;font-family:inherit}
+.ib:hover{color:var(--t1);border-color:var(--t3)}
+.ip{display:none;position:absolute;bottom:36px;right:10px;width:300px;background:var(--bg1);border:1px solid var(--bd);border-radius:8px;padding:10px;font-size:10px;color:var(--t2);z-index:101;max-height:240px;overflow-y:auto;line-height:1.5}
+.ip.show{display:block}
+.ip h4{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:700}
+.ip p{margin-bottom:4px}
+.ip ul{margin:3px 0 5px 14px}
+.ip li{margin-bottom:2px}
+.ip .sn{font-size:9px;color:var(--t3);font-style:italic;margin-top:5px;border-top:1px solid var(--bd);padding-top:5px}
+
+.tt{position:fixed;display:none;background:var(--bg1);border:1px solid var(--bd);border-radius:8px;padding:7px 10px;font-size:11px;max-width:280px;pointer-events:none;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+.tt-t{font-weight:600;margin-bottom:2px}
+.tt-ty{font-size:9px;font-weight:600;text-transform:uppercase;margin-bottom:1px}
+.tt-n{color:var(--t2);font-size:10px}
+.tt-ts{color:var(--purple);font-size:9px;margin-top:2px;font-family:monospace}
+
+.phase-ind{position:absolute;top:10px;left:50%;transform:translateX(-50%);background:var(--bg1);border:1px solid var(--bd);border-radius:8px;padding:4px 14px;font-size:11px;color:var(--purple);font-weight:600;z-index:100;pointer-events:none;opacity:0;transition:opacity .3s}
+.phase-ind.show{opacity:1}
+
+@media(max-width:768px){
+  .sb.open{position:absolute;right:0;top:0;height:100%;z-index:500;box-shadow:-4px 0 20px rgba(0,0,0,.5)}
+  .tb{padding:5px 8px;gap:5px}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>Fine-Grained Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</h1>
+  <div class="sub">Mentions, Blocks, YouTube Debates &mdash; Three phases: Pre-Debate (May 1&ndash;12) &rarr; Debate (May 13) &rarr; Post-Debate (May 14). Data from public X posts &amp; YouTube.</div>
+  <div class="updated" id="lastUpdated"></div>
+</div>
+
+<div class="tb">
+  <div class="tg">
+    <span class="tl">Clusters</span>
+    <button class="btn on" data-cl="red" onclick="togCluster('red')"><span class="d" style="background:var(--red)"></span>Dyer/Orthobros</button>
+    <button class="btn on" data-cl="blue" onclick="togCluster('blue')"><span class="d" style="background:var(--blue)"></span>Wood/Evangelical</button>
+    <button class="btn on" data-cl="gray" onclick="togCluster('gray')"><span class="d" style="background:var(--gray)"></span>Observers</button>
+  </div>
+  <div class="tv"></div>
+  <div class="tg">
+    <span class="tl">Edges</span>
+    <button class="btn on" data-et="attacks" onclick="togEdge('attacks')"><span class="d" style="background:var(--red)"></span>Attacks</button>
+    <button class="btn on" data-et="defends" onclick="togEdge('defends')"><span class="d" style="background:var(--blue)"></span>Defends</button>
+    <button class="btn on" data-et="past_collab" onclick="togEdge('past_collab')"><span class="d" style="background:var(--green)"></span>Collabs</button>
+    <button class="btn on" data-et="debates" onclick="togEdge('debates')"><span class="d" style="background:var(--purple)"></span>Debates</button>
+    <button class="btn on" data-et="blocks" onclick="togEdge('blocks')"><span class="d" style="background:var(--orange)"></span>Blocks</button>
+    <button class="btn on" data-et="neutral" onclick="togEdge('neutral')"><span class="d" style="background:var(--gray)"></span>Questions/Mentions</button>
+  </div>
+  <div class="tv"></div>
+  <div class="tg">
+    <span class="tl">Phase</span>
+    <button class="pb on" data-ph="all" onclick="setPhase('all')">All</button>
+    <button class="pb" data-ph="pre" onclick="setPhase('pre')">Pre-Debate</button>
+    <button class="pb" data-ph="debate" onclick="setPhase('debate')">Debate</button>
+    <button class="pb" data-ph="post" onclick="setPhase('post')">Post-Debate</button>
+  </div>
+  <div class="tv"></div>
+  <div class="tg">
+    <button class="play-btn" id="playBtn" onclick="playEvo()">&#9654; Play Evolution</button>
+  </div>
+  <div class="tv"></div>
+  <div class="tg">
+    <input class="si" id="search" type="text" placeholder="Search nodes..." oninput="doSearch(this.value)">
+    <button class="rb" onclick="resetAll()">Reset</button>
+  </div>
+</div>
+
+<div class="main">
+  <div id="wrap">
+    <div id="net"></div>
+    <div id="loading">Loading data&hellip;</div>
+    <div id="loadError"></div>
+    <div class="phase-ind" id="phaseInd"></div>
+
+    <div class="leg">
+      <h4>Legend</h4>
+      <div class="li"><div class="ll" style="background:var(--red)"></div>Attacks</div>
+      <div class="li"><div class="ll" style="background:var(--blue)"></div>Defends</div>
+      <div class="li"><div class="ll" style="background:var(--green)"></div>Past Collaboration</div>
+      <div class="li"><div class="ll" style="background:var(--purple)"></div>Debates</div>
+      <div class="li"><div class="ll" style="background:var(--orange)"></div>Blocks</div>
+      <div class="li"><div class="ll da" style="border-color:var(--gray)"></div>Questions / Mentions</div>
+      <div style="margin-top:6px;padding-top:5px;border-top:1px solid var(--bd)">
+        <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0"></div>Dyer / Orthobros</div>
+        <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div>Wood / Evangelical</div>
+        <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--gray);flex-shrink:0"></div>Neutral / Observers</div>
+      </div>
+    </div>
+
+    <button class="ib" onclick="togInfo()">&#8505; How to read this map</button>
+    <div class="ip" id="infoP">
+      <h4>How to read this map</h4>
+      <p>Each node is a real public account observed in the May 2026 apologetics conflict. Arrows show who engaged whom and how.</p>
+      <p><strong>Three phases:</strong></p>
+      <ul>
+        <li><strong>Pre-Debate (May 1&ndash;12)</strong> &mdash; Dyer attacks Avery &amp; Wood; Wood fires back at Orthobros</li>
+        <li><strong>Debate (May 13)</strong> &mdash; Andrew Wilson proxy-debates Wood live on YouTube</li>
+        <li><strong>Post-Debate (May 14)</strong> &mdash; Wood announces critique series; Dyer blocks critics; loyalists rally; observers call for peace</li>
+      </ul>
+      <p><strong>Play Evolution</strong> animates the network growing chronologically so you can watch the conflict escalate.</p>
+      <p><strong>Key pattern:</strong> GodLogic Avery flipped from Dyer collaborator (green) to Wood-aligned defender (blue) &mdash; the catalyst event.</p>
+      <p class="sn" id="infoSource"></p>
+    </div>
+  </div>
+
+  <div class="sb" id="sidebar">
+    <div class="sbi" id="sbCont"></div>
+  </div>
+</div>
+
+<div class="tt" id="tooltip"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ── Config ── */
+var COLORS = {
+  attacks:'#f85149', defends:'#58a6ff', past_collab:'#3fb950',
+  debates:'#bc8cff', blocks:'#d29922', questions:'#6e7681', mentions:'#6e7681'
+};
+var CLUSTER_COLORS = {
+  red:  {bg:'#f85149',bd:'#da3633',hBg:'#ff7b73',hBd:'#f85149'},
+  blue: {bg:'#58a6ff',bd:'#388bfd',hBg:'#79b8ff',hBd:'#58a6ff'},
+  gray: {bg:'#6e7681',bd:'#545d68',hBg:'#8b949e',hBd:'#6e7681'}
+};
+var CLUSTER_NAMES = {red:'Dyer / Orthobros',blue:'Wood / Evangelical',gray:'Neutral / Observer'};
+
+/* ── State (populated after fetch) ── */
+var DATA_NODES = [];
+var DATA_EDGES = [];
+var PHASE_LABELS = {};
+var visNodes, visEdges, nodes, edges, network;
+
+var activeClusters = new Set(['red','blue','gray']);
+var activeEdgeTypes = new Set(['attacks','defends','past_collab','debates','blocks','neutral']);
+var activePhase = 'all';
+var evoTimer = null, evoRunning = false;
+
+/* ── Helpers ── */
+function hexRgba(hex,a){
+  var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return 'rgba('+r+','+g+','+b+','+a+')';
+}
+function mkNodeColor(cl){
+  var c=CLUSTER_COLORS[cl];
+  return {background:c.bg,border:c.bd,highlight:{background:c.hBg,border:c.hBd},hover:{background:c.hBg,border:c.hBd}};
+}
+function edgeColor(eType){var c=COLORS[eType]||'#6e7681';return {color:c,highlight:c,hover:c}}
+function edgeFGroup(eType){return(eType==='questions'||eType==='mentions')?'neutral':eType}
+function nodeFontSize(sz){return sz>=30?14:sz>=18?11:10}
+function cleanLabel(l){return (l||'').replace(/\n/g,' ')}
+
+/* ── Fetch data.json ── */
+var dataUrl = 'data.json';
+fetch(dataUrl + '?_=' + Date.now())
+  .then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(function(data){init(data)})
+  .catch(function(err){
+    document.getElementById('loading').style.display = 'none';
+    var el = document.getElementById('loadError');
+    el.style.display = 'block';
+    el.innerHTML = '<strong>Failed to load data.json</strong><br><br>' + err.message +
+      '<br><br><span style="color:var(--t2);font-size:11px">If opening locally, serve via a local server:<br><code style="color:var(--green)">python3 -m http.server 8000</code><br>then open <code>http://localhost:8000</code></span>';
+  });
+
+/* ── Init after data loads ── */
+function init(data){
+  DATA_NODES = data.nodes;
+  DATA_EDGES = data.edges;
+  PHASE_LABELS = (data.meta && data.meta.phases) || {pre:'Pre-Debate',debate:'Debate',post:'Post-Debate'};
+
+  // Show last-updated in header
+  if(data.meta){
+    var lu = data.meta.lastUpdated;
+    if(lu){
+      var d = new Date(lu);
+      document.getElementById('lastUpdated').textContent =
+        'Data updated: ' + d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
+    }
+    var src = document.getElementById('infoSource');
+    if(src && data.meta.source) src.textContent = data.meta.source + (lu ? ' — Last updated ' + lu : '');
+  }
+
+  // Build vis-compatible arrays
+  visNodes = DATA_NODES.map(function(n){
+    var o = {id:n.id, label:n.label, size:n.size, shape:n.shape||'dot',
+             x:n.x, y:n.y, mass:n.mass||1, color:mkNodeColor(n.cluster), borderWidth:2,
+             shadow:{enabled:true,color:'rgba(0,0,0,.25)',size:6,x:0,y:2},
+             font:{size:nodeFontSize(n.size),color:'#e6edf3'}};
+    return o;
+  });
+
+  visEdges = DATA_EDGES.map(function(e){
+    var isDashed = e.eType==='questions'||e.eType==='mentions';
+    var o = {id:e.id, from:e.from, to:e.to,
+             label:e.eType==='past_collab'?'collab':isDashed?'':e.eType,
+             color:edgeColor(e.eType),
+             width:e.eType==='debates'?3:e.eType==='attacks'?2:1.5,
+             dashes:isDashed?[5,5]:false,
+             arrows:{to:{enabled:true,scaleFactor:.6}},
+             font:{size:8,color:'#6e7681',strokeWidth:2,strokeColor:'#0d1117'},
+             eType:e.eType, fGroup:edgeFGroup(e.eType), phase:e.phase,
+             note:e.note, ts:e.ts};
+    if(e.smooth) o.smooth = e.smooth;
+    return o;
+  });
+
+  // Create network
+  var container = document.getElementById('net');
+  nodes = new vis.DataSet(visNodes);
+  edges = new vis.DataSet(visEdges);
+
+  network = new vis.Network(container, {nodes:nodes, edges:edges}, {
+    nodes:{
+      borderWidth:2,
+      font:{color:'#e6edf3',size:11,face:"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"}
+    },
+    edges:{
+      smooth:{type:'dynamic'},
+      font:{face:"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"}
+    },
+    physics:{
+      forceAtlas2Based:{gravitationalConstant:-60,centralGravity:.006,springLength:170,springConstant:.05,damping:.4,avoidOverlap:.4},
+      solver:'forceAtlas2Based',
+      stabilization:{enabled:true,iterations:800,updateInterval:25}
+    },
+    interaction:{hover:true,tooltipDelay:0,zoomView:true,dragView:true,dragNodes:true},
+    layout:{improvedLayout:true,randomSeed:42}
+  });
+
+  network.once('stabilizationIterationsDone',function(){
+    document.getElementById('loading').style.display='none';
+    network.setOptions({physics:false});
+    network.fit({animation:{duration:400,easingFunction:'easeInOutQuad'}});
+  });
+  network.on('dragStart',function(){network.setOptions({physics:{enabled:true}})});
+  network.on('dragEnd',function(){setTimeout(function(){network.setOptions({physics:false})},2500)});
+
+  // Wire up events
+  network.on('hoverNode',onHoverNode);
+  network.on('blurNode',hideTT);
+  network.on('hoverEdge',onHoverEdge);
+  network.on('blurEdge',hideTT);
+  network.on('click',function(p){if(p.nodes.length>0) openSB(p.nodes[0])});
+}
+
+/* ── Cluster toggle ── */
+window.togCluster = function(cl){
+  var b=document.querySelector('[data-cl="'+cl+'"]');
+  if(activeClusters.has(cl)){activeClusters.delete(cl);b.classList.remove('on')}
+  else{activeClusters.add(cl);b.classList.add('on')}
+  updateAll();
+};
+
+/* ── Edge type toggle ── */
+window.togEdge = function(et){
+  var b=document.querySelector('[data-et="'+et+'"]');
+  if(activeEdgeTypes.has(et)){activeEdgeTypes.delete(et);b.classList.remove('on')}
+  else{activeEdgeTypes.add(et);b.classList.add('on')}
+  updateEdgeVis();
+};
+
+/* ── Phase filter ── */
+window.setPhase = function(p){
+  activePhase=p;
+  document.querySelectorAll('.pb').forEach(function(b){b.classList.toggle('on',b.dataset.ph===p)});
+  updateEdgeVis();
+};
+
+/* ── Update functions ── */
+function updateAll(){
+  if(!nodes) return;
+  var nu=DATA_NODES.map(function(n){return {id:n.id,hidden:!activeClusters.has(n.cluster)}});
+  nodes.update(nu);
+  updateEdgeVis();
+}
+
+function updateEdgeVis(){
+  if(!edges) return;
+  var eu=DATA_EDGES.map(function(e,i){
+    var ve=visEdges[i];
+    var fg=ve.fGroup;
+    var typeVis=activeEdgeTypes.has(fg);
+    var fn=DATA_NODES.find(function(n){return n.id===e.from});
+    var tn=DATA_NODES.find(function(n){return n.id===e.to});
+    var nodesVis=activeClusters.has(fn.cluster)&&activeClusters.has(tn.cluster);
+    if(!typeVis||!nodesVis) return {id:e.id,hidden:true};
+    var phaseMatch=activePhase==='all'||e.phase===activePhase;
+    var base=COLORS[e.eType]||'#6e7681';
+    return {id:e.id,hidden:false,
+      color:{color:phaseMatch?base:hexRgba(base,.1),highlight:base,hover:base},
+      width:phaseMatch?ve.width:1,
+      font:{color:phaseMatch?'#6e7681':'rgba(110,118,129,.1)',size:phaseMatch?8:0}};
+  });
+  edges.update(eu);
+}
+
+/* ── Search ── */
+window.doSearch = function(q){
+  if(!nodes) return;
+  q=q.toLowerCase().trim();
+  var u=DATA_NODES.map(function(n){
+    var fs=nodeFontSize(n.size);
+    if(!q) return {id:n.id,color:mkNodeColor(n.cluster),font:{size:fs,color:'#e6edf3'}};
+    var lbl=cleanLabel(n.label).toLowerCase();
+    var h=(n.handle||'').toLowerCase();
+    var hit=lbl.indexOf(q)>=0||h.indexOf(q)>=0;
+    if(hit) return {id:n.id,color:mkNodeColor(n.cluster),font:{size:fs,color:'#e6edf3'}};
+    var c=CLUSTER_COLORS[n.cluster];
+    return {id:n.id,
+      color:{background:hexRgba(c.bg,.1),border:hexRgba(c.bd,.1),highlight:{background:c.hBg,border:c.hBd},hover:{background:c.hBg,border:c.hBd}},
+      font:{size:fs,color:'rgba(230,237,243,.12)'}};
+  });
+  nodes.update(u);
+};
+
+/* ── Reset ── */
+window.resetAll = function(){
+  activeClusters=new Set(['red','blue','gray']);
+  document.querySelectorAll('[data-cl]').forEach(function(b){b.classList.add('on')});
+  activeEdgeTypes=new Set(['attacks','defends','past_collab','debates','blocks','neutral']);
+  document.querySelectorAll('[data-et]').forEach(function(b){b.classList.add('on')});
+  activePhase='all';
+  document.querySelectorAll('.pb').forEach(function(b){b.classList.toggle('on',b.dataset.ph==='all')});
+  document.getElementById('search').value='';
+  doSearch('');
+  updateAll();
+  closeSB();
+  stopEvo();
+  if(network) network.fit({animation:{duration:300}});
+};
+
+/* ── Play Evolution ── */
+window.playEvo = function(){
+  if(!edges) return;
+  if(evoRunning){stopEvo();return}
+  evoRunning=true;
+  var btn=document.getElementById('playBtn');
+  btn.innerHTML='&#9208; Stop';
+  btn.classList.add('running');
+  edges.update(DATA_EDGES.map(function(e){return {id:e.id,hidden:true}}));
+  var phaseOrder=['pre','debate','post'];
+  var phaseIdx=0;
+  var ind=document.getElementById('phaseInd');
+  function showPhase(){
+    if(phaseIdx>=phaseOrder.length){
+      setTimeout(function(){ind.classList.remove('show');setPhase('all');stopEvo()},1200);
+      return;
+    }
+    var ph=phaseOrder[phaseIdx];
+    ind.textContent=PHASE_LABELS[ph]||ph;
+    ind.classList.add('show');
+    var phEdges=DATA_EDGES.filter(function(e){return e.phase===ph});
+    var eIdx=0;
+    function showNext(){
+      if(!evoRunning) return;
+      if(eIdx>=phEdges.length){phaseIdx++;setTimeout(showPhase,800);return}
+      var e=phEdges[eIdx];
+      var ve=visEdges.find(function(v){return v.id===e.id});
+      edges.update({id:e.id,hidden:false,color:edgeColor(e.eType),width:ve.width,
+                    font:{color:'#6e7681',size:8}});
+      eIdx++;
+      evoTimer=setTimeout(showNext,450);
+    }
+    evoTimer=setTimeout(showNext,400);
+  }
+  showPhase();
+};
+
+function stopEvo(){
+  evoRunning=false;
+  if(evoTimer) clearTimeout(evoTimer);
+  evoTimer=null;
+  var btn=document.getElementById('playBtn');
+  btn.innerHTML='&#9654; Play Evolution';
+  btn.classList.remove('running');
+  document.getElementById('phaseInd').classList.remove('show');
+  updateEdgeVis();
+}
+
+/* ── Tooltip ── */
+var tt=document.getElementById('tooltip');
+var ttOn=false, mx=0, my=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(ttOn)posTT()});
+function posTT(){
+  tt.style.left=(mx+12)+'px';tt.style.top=(my+12)+'px';
+  requestAnimationFrame(function(){
+    var r=tt.getBoundingClientRect();
+    if(r.right>window.innerWidth) tt.style.left=(mx-r.width-12)+'px';
+    if(r.bottom>window.innerHeight) tt.style.top=(my-r.height-12)+'px';
+  });
+}
+function showTT(h){tt.innerHTML=h;tt.style.display='block';ttOn=true;posTT()}
+function hideTT(){tt.style.display='none';ttOn=false}
+
+function onHoverNode(p){
+  var n=DATA_NODES.find(function(x){return x.id===p.node});
+  if(!n) return;
+  var h='<div class="tt-t">'+cleanLabel(n.label)+'</div>';
+  if(n.handle) h+='<div style="font-size:9px;color:var(--t3);font-family:monospace">'+n.handle+'</div>';
+  h+='<div class="tt-n">'+(CLUSTER_NAMES[n.cluster]||n.cluster)+'</div>';
+  showTT(h);
+}
+
+function onHoverEdge(p){
+  var e=DATA_EDGES.find(function(x){return x.id===p.edge});
+  if(!e) return;
+  var fn=DATA_NODES.find(function(x){return x.id===e.from});
+  var tn=DATA_NODES.find(function(x){return x.id===e.to});
+  showTT(
+    '<div class="tt-t">'+cleanLabel(fn.label)+' &rarr; '+cleanLabel(tn.label)+'</div>'+
+    '<div class="tt-ty" style="color:'+(COLORS[e.eType]||'#6e7681')+'">'+e.eType+'</div>'+
+    '<div class="tt-n">'+e.note+'</div>'+
+    '<div class="tt-ts">'+e.ts+'</div>'
+  );
+}
+
+/* ── Sidebar ── */
+function openSB(id){
+  var n=DATA_NODES.find(function(x){return x.id===id});
+  if(!n) return;
+  var out=DATA_EDGES.filter(function(e){return e.from===id});
+  var inc=DATA_EDGES.filter(function(e){return e.to===id});
+  var clTag=CLUSTER_NAMES[n.cluster]||n.cluster;
+
+  var h='<div class="sbh"><button class="sx" onclick="closeSB()">&times;</button>';
+  h+='<h2>'+cleanLabel(n.label)+'</h2>';
+  if(n.handle) h+='<div class="handle">'+n.handle+'</div>';
+  h+='<span class="nt"><span class="cluster-tag '+n.cluster+'">'+clTag+'</span></span></div>';
+  h+='<div class="ss"><h3>Description</h3><p>'+n.desc+'</p></div>';
+
+  if(out.length){
+    h+='<div class="ss"><h3>Outgoing ('+out.length+')</h3>';
+    out.forEach(function(e){
+      var tn=DATA_NODES.find(function(x){return x.id===e.to});
+      h+='<div class="ei"><span class="eb '+e.eType+'">'+e.eType+'</span><div>';
+      h+='<div>&rarr; '+cleanLabel(tn.label)+'</div>';
+      h+='<div class="ei-n">'+e.note+'</div>';
+      h+='<div class="ei-ts">'+e.ts+'</div></div></div>';
+    });
+    h+='</div>';
+  }
+  if(inc.length){
+    h+='<div class="ss"><h3>Incoming ('+inc.length+')</h3>';
+    inc.forEach(function(e){
+      var fn=DATA_NODES.find(function(x){return x.id===e.from});
+      h+='<div class="ei"><span class="eb '+e.eType+'">'+e.eType+'</span><div>';
+      h+='<div>&larr; '+cleanLabel(fn.label)+'</div>';
+      h+='<div class="ei-n">'+e.note+'</div>';
+      h+='<div class="ei-ts">'+e.ts+'</div></div></div>';
+    });
+    h+='</div>';
+  }
+
+  document.getElementById('sbCont').innerHTML=h;
+  document.getElementById('sidebar').classList.add('open');
+  setTimeout(function(){if(network) network.redraw()},350);
+}
+
+window.closeSB = function(){
+  document.getElementById('sidebar').classList.remove('open');
+  setTimeout(function(){if(network) network.redraw()},350);
+};
+
+/* ── Info toggle ── */
+window.togInfo = function(){document.getElementById('infoP').classList.toggle('show')};
+
+})();
+</script>
+</body>
+</html>
