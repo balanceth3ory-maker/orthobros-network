@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-14T21:00:00Z",
+    "lastUpdated": "2026-05-14T22:00:00Z",
     "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–14 2026)",
     "phases": {
       "pre":    "Pre-Debate (May 1–12)",
@@ -89,6 +89,26 @@
       "shape": "dot",
       "x": 100, "y": -130, "mass": 1.5,
       "desc": "Major catalyst. Previously collaborated with Dyer on anti-Islam streams, then attacked by Dyer over grift accusations. Flipped to Wood's side — the event that triggered the broader schism. Featured in Wood's May 14 post about Hijab lawsuit."
+    },
+    {
+      "id": "sam_shamoun",
+      "label": "Sam\nShamoun",
+      "handle": "@shamounian",
+      "cluster": "blue",
+      "size": 22,
+      "shape": "dot",
+      "x": 420, "y": -110, "mass": 1.5,
+      "desc": "Prominent Evangelical apologist and long-term David Wood collaborator. Frequently mentioned in the debate space."
+    },
+    {
+      "id": "apostate_prophet",
+      "label": "Apostate\nProphet",
+      "handle": "@ApostateProphet",
+      "cluster": "blue",
+      "size": 22,
+      "shape": "dot",
+      "x": 420, "y": 110, "mass": 1.5,
+      "desc": "Ex-Muslim Christian apologist. Long-term collaborator with David Wood on anti-Islam content."
     },
     {
       "id": "cinemanarchism",
@@ -219,43 +239,57 @@
       "smooth": { "type": "curvedCW", "roundness": 0.15 }
     },
     {
-      "id": "e11", "from": "cinemanarchism", "to": "jay_dyer",
+      "id": "e11", "from": "sam_shamoun", "to": "david_wood",
+      "eType": "collaborates", "phase": "pre",
+      "ts": "Long-term",
+      "note": "Prominent Evangelical apologist — frequent collaborator frequently mentioned in the debate space",
+      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+    },
+    {
+      "id": "e12", "from": "apostate_prophet", "to": "david_wood",
+      "eType": "collaborates", "phase": "pre",
+      "ts": "Long-term",
+      "note": "Ex-Muslim apologist — long-term anti-Islam content collaborator with Wood",
+      "smooth": { "type": "curvedCCW", "roundness": 0.2 }
+    },
+    {
+      "id": "e13", "from": "cinemanarchism", "to": "jay_dyer",
       "eType": "questions", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Neutral pushback questioning Dyer's post-debate behavior"
     },
     {
-      "id": "e12", "from": "cinemanarchism", "to": "david_wood",
+      "id": "e14", "from": "cinemanarchism", "to": "david_wood",
       "eType": "questions", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Neutral pushback questioning Wood's framing post-debate"
     },
     {
-      "id": "e13", "from": "icxc_zachariah", "to": "jay_dyer",
+      "id": "e15", "from": "icxc_zachariah", "to": "jay_dyer",
       "eType": "questions", "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Consistent neutral activity in Dyer's threads during the debate phase"
     },
     {
-      "id": "e14", "from": "garycoleman", "to": "jay_dyer",
+      "id": "e16", "from": "garycoleman", "to": "jay_dyer",
       "eType": "questions", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Commented on Dyer's pattern of mass-blocking critics"
     },
     {
-      "id": "e15", "from": "vikingprime", "to": "david_wood",
+      "id": "e17", "from": "vikingprime", "to": "david_wood",
       "eType": "questions", "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Active replier in Wood's debate threads without strong alignment"
     },
     {
-      "id": "e16", "from": "obiwan_sunobi", "to": "jay_dyer",
+      "id": "e18", "from": "obiwan_sunobi", "to": "jay_dyer",
       "eType": "questions", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Commented on Dyer's blocking behavior post-debate"
     },
     {
-      "id": "e17", "from": "d_bahler", "to": "jay_dyer",
+      "id": "e19", "from": "d_bahler", "to": "jay_dyer",
       "eType": "questions", "phase": "pre",
       "ts": "May 12, 2026",
       "note": "Critic of Dyer's obsession with conflict — early pre-debate skepticism"

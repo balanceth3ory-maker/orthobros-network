@@ -203,6 +203,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 /* ── Config ── */
 var COLORS = {
   attacks:'#f85149', defends:'#58a6ff', past_collab:'#3fb950',
+  collaborates:'#3fb950',
   debates:'#bc8cff', blocks:'#d29922', questions:'#6e7681', mentions:'#6e7681'
 };
 var CLUSTER_COLORS = {
@@ -233,7 +234,11 @@ function mkNodeColor(cl){
   return {background:c.bg,border:c.bd,highlight:{background:c.hBg,border:c.hBd},hover:{background:c.hBg,border:c.hBd}};
 }
 function edgeColor(eType){var c=COLORS[eType]||'#6e7681';return {color:c,highlight:c,hover:c}}
-function edgeFGroup(eType){return(eType==='questions'||eType==='mentions')?'neutral':eType}
+function edgeFGroup(eType){
+  if(eType==='questions'||eType==='mentions') return 'neutral';
+  if(eType==='collaborates') return 'past_collab';
+  return eType;
+}
 function nodeFontSize(sz){return sz>=30?14:sz>=18?11:10}
 function cleanLabel(l){return (l||'').replace(/\n/g,' ')}
 
@@ -283,7 +288,7 @@ function init(data){
   visEdges = DATA_EDGES.map(function(e){
     var isDashed = e.eType==='questions'||e.eType==='mentions';
     var o = {id:e.id, from:e.from, to:e.to,
-             label:e.eType==='past_collab'?'collab':isDashed?'':e.eType,
+             label:(e.eType==='past_collab'||e.eType==='collaborates')?'collab':isDashed?'':e.eType,
              color:edgeColor(e.eType),
              width:e.eType==='debates'?3:e.eType==='attacks'?2:1.5,
              dashes:isDashed?[5,5]:false,
