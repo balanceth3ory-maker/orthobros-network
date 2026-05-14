@@ -72,6 +72,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 .eb.debates{background:rgba(188,140,255,.15);color:var(--purple)}
 .eb.blocks{background:rgba(210,153,34,.15);color:var(--orange)}
 .eb.questions,.eb.mentions{background:rgba(110,118,129,.15);color:var(--gray)}
+.eb.repost{background:rgba(0,180,216,.15);color:#00b4d8}
 .ei-n{font-size:10px;color:var(--t3);margin-top:1px}
 .ei-ts{font-size:9px;color:var(--purple);margin-top:1px;font-family:monospace}
 
@@ -131,6 +132,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     <button class="btn on" data-et="debates" onclick="togEdge('debates')"><span class="d" style="background:var(--purple)"></span>Debates</button>
     <button class="btn on" data-et="blocks" onclick="togEdge('blocks')"><span class="d" style="background:var(--orange)"></span>Blocks</button>
     <button class="btn on" data-et="neutral" onclick="togEdge('neutral')"><span class="d" style="background:var(--gray)"></span>Questions/Mentions</button>
+    <button class="btn" data-et="repost" onclick="togEdge('repost')"><span class="d" style="background:#00b4d8"></span>Reposts</button>
   </div>
   <div class="tv"></div>
   <div class="tg">
@@ -166,6 +168,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <div class="li"><div class="ll" style="background:var(--purple)"></div>Debates</div>
       <div class="li"><div class="ll" style="background:var(--orange)"></div>Blocks</div>
       <div class="li"><div class="ll da" style="border-color:var(--gray)"></div>Questions / Mentions</div>
+      <div class="li"><div class="ll da" style="border-color:#00b4d8"></div>Reposts (toggle on)</div>
       <div style="margin-top:6px;padding-top:5px;border-top:1px solid var(--bd)">
         <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0"></div>Dyer / Orthobros</div>
         <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div>Wood / Evangelical</div>
@@ -203,7 +206,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 /* ── Config ── */
 var COLORS = {
   attacks:'#f85149', defends:'#58a6ff', past_collab:'#3fb950',
-  collaborates:'#3fb950',
+  collaborates:'#3fb950', repost:'#00b4d8',
   debates:'#bc8cff', blocks:'#d29922', questions:'#6e7681', mentions:'#6e7681'
 };
 var CLUSTER_COLORS = {
@@ -220,7 +223,7 @@ var PHASE_LABELS = {};
 var visNodes, visEdges, nodes, edges, network;
 
 var activeClusters = new Set(['red','blue','gray']);
-var activeEdgeTypes = new Set(['attacks','defends','past_collab','debates','blocks','neutral']);
+var activeEdgeTypes = new Set(['attacks','defends','past_collab','debates','blocks','neutral']); // repost intentionally omitted — off by default
 var activePhase = 'all';
 var evoTimer = null, evoRunning = false;
 
@@ -286,7 +289,7 @@ function init(data){
   });
 
   visEdges = DATA_EDGES.map(function(e){
-    var isDashed = e.eType==='questions'||e.eType==='mentions';
+    var isDashed = e.eType==='questions'||e.eType==='mentions'||e.eType==='repost';
     var o = {id:e.id, from:e.from, to:e.to,
              label:(e.eType==='past_collab'||e.eType==='collaborates')?'collab':isDashed?'':e.eType,
              color:edgeColor(e.eType),
@@ -414,7 +417,9 @@ window.resetAll = function(){
   activeClusters=new Set(['red','blue','gray']);
   document.querySelectorAll('[data-cl]').forEach(function(b){b.classList.add('on')});
   activeEdgeTypes=new Set(['attacks','defends','past_collab','debates','blocks','neutral']);
-  document.querySelectorAll('[data-et]').forEach(function(b){b.classList.add('on')});
+  document.querySelectorAll('[data-et]').forEach(function(b){
+    b.classList.toggle('on', b.dataset.et !== 'repost');
+  });
   activePhase='all';
   document.querySelectorAll('.pb').forEach(function(b){b.classList.toggle('on',b.dataset.ph==='all')});
   document.getElementById('search').value='';

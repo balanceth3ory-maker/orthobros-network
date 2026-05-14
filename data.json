@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-14T23:00:00Z",
+    "lastUpdated": "2026-05-14T23:30:00Z",
     "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–14 2026)",
     "phases": {
       "pre":    "Pre-Debate (May 1–12)",
@@ -259,6 +259,86 @@
       "shape": "diamond",
       "x": 120, "y": 360, "mass": 1,
       "desc": "Low-influence account. Inquirer in Dyer's post-debate threads."
+    },
+    {
+      "id": "reposter_26",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": -500, "y": -80, "mass": 1,
+      "desc": "Reposted Jay Dyer content during the post-debate phase."
+    },
+    {
+      "id": "reposter_27",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": 500, "y": -80, "mass": 1,
+      "desc": "Reposted David Wood content during the post-debate phase."
+    },
+    {
+      "id": "reposter_28",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": -500, "y": 80, "mass": 1,
+      "desc": "Reposted Jay Dyer blocking discussion during the post-debate phase."
+    },
+    {
+      "id": "reposter_29",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": 500, "y": 80, "mass": 1,
+      "desc": "Reposted David Wood support post during the post-debate phase."
+    },
+    {
+      "id": "reposter_30",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": -440, "y": -220, "mass": 1,
+      "desc": "Reposted C2Antiquity's high-engagement Dyer support post."
+    },
+    {
+      "id": "reposter_31",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": -260, "y": 320, "mass": 1,
+      "desc": "Reposted ByJimbob's reaction Space content."
+    },
+    {
+      "id": "reposter_32",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": -420, "y": 180, "mass": 1,
+      "desc": "Reposted blocking discussion content."
+    },
+    {
+      "id": "reposter_33",
+      "label": "Reposter",
+      "handle": "",
+      "cluster": "gray",
+      "size": 8,
+      "shape": "square",
+      "x": 160, "y": -200, "mass": 1,
+      "desc": "Reposted GodLogic's support post for Wood."
     }
   ],
 
@@ -332,7 +412,7 @@
       "id": "e11", "from": "sam_shamoun", "to": "david_wood",
       "eType": "collaborates", "phase": "pre",
       "ts": "Long-term",
-      "note": "Prominent Evangelical apologist — frequent collaborator frequently mentioned in the debate space",
+      "note": "Prominent Evangelical apologist — frequent collaborator mentioned in the debate space",
       "smooth": { "type": "curvedCW", "roundness": 0.2 }
     },
     {
@@ -437,6 +517,54 @@
       "eType": "questions", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Inquirer in Dyer's post-debate threads"
+    },
+    {
+      "id": "e29", "from": "reposter_26", "to": "jay_dyer",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted Jay Dyer content"
+    },
+    {
+      "id": "e30", "from": "reposter_27", "to": "david_wood",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted David Wood content"
+    },
+    {
+      "id": "e31", "from": "reposter_28", "to": "jay_dyer",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted Jay Dyer blocking discussion"
+    },
+    {
+      "id": "e32", "from": "reposter_29", "to": "david_wood",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted David Wood support post"
+    },
+    {
+      "id": "e33", "from": "reposter_30", "to": "c2antiquity",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted C2Antiquity's high-engagement Dyer support post"
+    },
+    {
+      "id": "e34", "from": "reposter_31", "to": "byjimbob",
+      "eType": "repost", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Reposted ByJimbob's reaction Space content"
+    },
+    {
+      "id": "e35", "from": "reposter_32", "to": "jay_dyer",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted blocking discussion content"
+    },
+    {
+      "id": "e36", "from": "reposter_33", "to": "godlogic_avery",
+      "eType": "repost", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Reposted GodLogic's support post for Wood"
     }
   ]
 }
