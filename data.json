@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-14T22:00:00Z",
+    "lastUpdated": "2026-05-14T23:00:00Z",
     "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–14 2026)",
     "phases": {
       "pre":    "Pre-Debate (May 1–12)",
@@ -68,7 +68,7 @@
       "size": 16,
       "shape": "dot",
       "x": -160, "y": -180, "mass": 1,
-      "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — the formal representative of the Orthobros side in the debate phase."
+      "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side."
     },
     {
       "id": "david_wood",
@@ -78,7 +78,7 @@
       "size": 38,
       "shape": "dot",
       "x": 280, "y": 0, "mass": 3,
-      "desc": "Central figure with high engagement. Hosted major May 13 debate and announced '10 Problems with Eastern Orthodoxy' series May 14. Supported GodLogic publicly after the schism."
+      "desc": "Central figure with high engagement. Hosted major May 13 debate, announced '10 Problems with Eastern Orthodoxy' series May 14, and publicly supported GodLogic after the schism."
     },
     {
       "id": "godlogic_avery",
@@ -88,7 +88,7 @@
       "size": 22,
       "shape": "dot",
       "x": 100, "y": -130, "mass": 1.5,
-      "desc": "Major catalyst. Previously collaborated with Dyer on anti-Islam streams, then attacked by Dyer over grift accusations. Flipped to Wood's side — the event that triggered the broader schism. Featured in Wood's May 14 post about Hijab lawsuit."
+      "desc": "Major catalyst. Previously collaborated with Dyer on anti-Islam streams, then attacked by Dyer over grift accusations. Flipped to Wood's side — the event that triggered the broader schism. Featured in Wood's May 14 post."
     },
     {
       "id": "sam_shamoun",
@@ -169,6 +169,96 @@
       "shape": "diamond",
       "x": -200, "y": -240, "mass": 1,
       "desc": "Early critic of Dyer's obsession with conflict, questioning the pattern before the debate phase began."
+    },
+    {
+      "id": "mormonger",
+      "label": "Mormonger",
+      "handle": "@Mormonger",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": 180, "y": -200, "mass": 1,
+      "desc": "Active in debate threads around David Wood during the May 13 debate phase."
+    },
+    {
+      "id": "conny_trades",
+      "label": "conny_trades",
+      "handle": "@conny_trades",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": 260, "y": -160, "mass": 1,
+      "desc": "Posted in David Wood's debate threads on May 13."
+    },
+    {
+      "id": "justinphoster",
+      "label": "JustinPhoster",
+      "handle": "@JustinPhoster",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -160, "y": 260, "mass": 1,
+      "desc": "Engaged in discussion around Jay Dyer during the May 13 debate phase."
+    },
+    {
+      "id": "onedrunkpirate",
+      "label": "onedrunkpirate",
+      "handle": "@onedrunkpirate",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -280, "y": 200, "mass": 1,
+      "desc": "Active commenter in Dyer's threads during the May 13 debate phase."
+    },
+    {
+      "id": "thomasg130",
+      "label": "ThomasG130",
+      "handle": "@ThomasG130",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -320, "y": 80, "mass": 1,
+      "desc": "Provided historical context commentary in Jay Dyer's debate-phase threads."
+    },
+    {
+      "id": "revrush",
+      "label": "RevRushdoony",
+      "handle": "@RevRushdoony",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -100, "y": 340, "mass": 1,
+      "desc": "Active replier in Dyer's threads during the post-debate phase."
+    },
+    {
+      "id": "deucebigalow",
+      "label": "DeuceBigalowEO",
+      "handle": "@DeuceBigalowEO",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": 160, "y": 320, "mass": 1,
+      "desc": "Good faith debate participant in Wood's May 13 threads."
+    },
+    {
+      "id": "jewbusinessguy",
+      "label": "Jewbusiness\nguy",
+      "handle": "@Jewbusinessguy",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -40, "y": -320, "mass": 1,
+      "desc": "Commented on grift claims in Dyer's debate-phase threads."
+    },
+    {
+      "id": "altaccount5674",
+      "label": "altaccount\n5674",
+      "handle": "@altaccount5674",
+      "cluster": "gray",
+      "size": 10,
+      "shape": "diamond",
+      "x": 120, "y": 360, "mass": 1,
+      "desc": "Low-influence account. Inquirer in Dyer's post-debate threads."
     }
   ],
 
@@ -235,7 +325,7 @@
       "id": "e10", "from": "godlogic_avery", "to": "david_wood",
       "eType": "defends", "phase": "post",
       "ts": "May 14, 2026",
-      "note": "GodLogic supported by Wood — featured in Wood's May 14 post about Hijab lawsuit",
+      "note": "GodLogic supported by Wood — featured in Wood's May 14 post",
       "smooth": { "type": "curvedCW", "roundness": 0.15 }
     },
     {
@@ -293,6 +383,60 @@
       "eType": "questions", "phase": "pre",
       "ts": "May 12, 2026",
       "note": "Critic of Dyer's obsession with conflict — early pre-debate skepticism"
+    },
+    {
+      "id": "e20", "from": "mormonger", "to": "david_wood",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Active in debate threads around Wood"
+    },
+    {
+      "id": "e21", "from": "conny_trades", "to": "david_wood",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Posted in Wood's debate threads"
+    },
+    {
+      "id": "e22", "from": "justinphoster", "to": "jay_dyer",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Engaged in discussion around Dyer"
+    },
+    {
+      "id": "e23", "from": "onedrunkpirate", "to": "jay_dyer",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Active commenter in Dyer's debate threads"
+    },
+    {
+      "id": "e24", "from": "thomasg130", "to": "jay_dyer",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Historical context comment in Dyer's threads"
+    },
+    {
+      "id": "e25", "from": "revrush", "to": "jay_dyer",
+      "eType": "questions", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Active replier in Dyer's post-debate threads"
+    },
+    {
+      "id": "e26", "from": "deucebigalow", "to": "david_wood",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Good faith debate participant in Wood's threads"
+    },
+    {
+      "id": "e27", "from": "jewbusinessguy", "to": "jay_dyer",
+      "eType": "questions", "phase": "debate",
+      "ts": "May 13, 2026",
+      "note": "Commented on grift claims in Dyer's threads"
+    },
+    {
+      "id": "e28", "from": "altaccount5674", "to": "jay_dyer",
+      "eType": "questions", "phase": "post",
+      "ts": "May 14, 2026",
+      "note": "Inquirer in Dyer's post-debate threads"
     }
   ]
 }
