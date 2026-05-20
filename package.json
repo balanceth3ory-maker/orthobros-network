@@ -1,0 +1,21 @@
+{
+  "name": "orthobros-network",
+  "version": "1.0.0",
+  "description": "Fine-Grained Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "lint": "echo 'No linter configured for static HTML project'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balanceth3ory-maker/orthobros-network.git"
+  },
+  "keywords": ["network", "visualization", "analytics"],
+  "author": "",
+  "license": "MIT"
+}
