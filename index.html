@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fine-Grained Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</title>
+<title>Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</title>
 <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -73,6 +73,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 .eb.blocks{background:rgba(210,153,34,.15);color:var(--orange)}
 .eb.questions,.eb.mentions{background:rgba(110,118,129,.15);color:var(--gray)}
 .eb.repost{background:rgba(0,180,216,.15);color:#00b4d8}
+.eb.quotes{background:rgba(224,168,0,.15);color:#e0a800}
 .ei-n{font-size:10px;color:var(--t3);margin-top:1px}
 .ei-ts{font-size:9px;color:var(--purple);margin-top:1px;font-family:monospace}
 
@@ -111,8 +112,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <body>
 
 <div class="hdr">
-  <h1>Fine-Grained Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</h1>
-  <div class="sub">Mentions, Blocks, YouTube Debates &mdash; Three phases: Pre-Debate (May 1&ndash;12) &rarr; Debate (May 13) &rarr; Post-Debate (May 14). Data from public X posts &amp; YouTube.</div>
+  <h1>Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</h1>
+  <div class="sub">Mentions, Blocks, YouTube Debates &mdash; Three phases: Pre-Debate (May 1&ndash;12) &rarr; Debate (May 13) &rarr; Post-Debate (May 14&ndash;28). Data from public X posts &amp; YouTube.</div>
   <div class="updated" id="lastUpdated"></div>
 </div>
 
@@ -133,6 +134,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     <button class="btn on" data-et="blocks" onclick="togEdge('blocks')"><span class="d" style="background:var(--orange)"></span>Blocks</button>
     <button class="btn on" data-et="neutral" onclick="togEdge('neutral')"><span class="d" style="background:var(--gray)"></span>Questions/Mentions</button>
     <button class="btn" data-et="repost" onclick="togEdge('repost')"><span class="d" style="background:#00b4d8"></span>Reposts</button>
+    <button class="btn" data-et="quotes" onclick="togEdge('quotes')"><span class="d" style="background:#e0a800"></span>Quotes</button>
   </div>
   <div class="tv"></div>
   <div class="tg">
@@ -169,6 +171,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <div class="li"><div class="ll" style="background:var(--orange)"></div>Blocks</div>
       <div class="li"><div class="ll da" style="border-color:var(--gray)"></div>Questions / Mentions</div>
       <div class="li"><div class="ll da" style="border-color:#00b4d8"></div>Reposts (toggle on)</div>
+      <div class="li"><div class="ll da" style="border-color:#e0a800"></div>Quotes (toggle on)</div>
       <div style="margin-top:6px;padding-top:5px;border-top:1px solid var(--bd)">
         <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0"></div>Dyer / Orthobros</div>
         <div class="li"><div class="d" style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div>Wood / Evangelical</div>
@@ -184,10 +187,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <ul>
         <li><strong>Pre-Debate (May 1&ndash;12)</strong> &mdash; Dyer attacks Avery &amp; Wood; Wood fires back at Orthobros</li>
         <li><strong>Debate (May 13)</strong> &mdash; Andrew Wilson proxy-debates Wood live on YouTube</li>
-        <li><strong>Post-Debate (May 14)</strong> &mdash; Wood announces critique series; Dyer blocks critics; loyalists rally; observers call for peace</li>
+        <li><strong>Post-Debate (May 14&ndash;28)</strong> &mdash; Wood announces critique series; Dyer blocks critics; JPuncut (Truth Cartel) hosts Mauler vs Andrew Wilson debate; loyalists rally; observers call for peace</li>
       </ul>
       <p><strong>Play Evolution</strong> animates the network growing chronologically so you can watch the conflict escalate.</p>
-      <p><strong>Key pattern:</strong> GodLogic Avery flipped from Dyer collaborator (green) to Wood-aligned defender (blue) &mdash; the catalyst event.</p>
+      <p><strong>Key pattern:</strong> GodLogic Avery flipped from Dyer collaborator (green) to Wood-aligned defender (blue) &mdash; the catalyst event. A second front opened with JPuncut hosting Mauler to debate Andrew Wilson.</p>
       <p class="sn" id="infoSource"></p>
     </div>
   </div>
@@ -203,11 +206,63 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 (function(){
 'use strict';
 
+/* ── Sheet config ── */
+var SHEET_ID = '1Mf4f_Uvx7QMXeWdAdQ4UzYpkSBH5yhqaa7OfSe_Sbtk';
+var NODES_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=0';
+var EDGES_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=1946166123';
+
+/* ── CSV parser ── */
+function parseCSV(text) {
+  var lines = text.trim().split('\n');
+  var headers = lines[0].split(',').map(function(h){ return h.trim().replace(/^"|"$/g,''); });
+  return lines.slice(1).map(function(line) {
+    var vals = [], cur = '', inQ = false;
+    for (var i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQ = !inQ; }
+      else if (line[i] === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+      else { cur += line[i]; }
+    }
+    vals.push(cur.trim());
+    var obj = {};
+    headers.forEach(function(h,i){ obj[h] = (vals[i]||'').replace(/^"|"$/g,''); });
+    return obj;
+  }).filter(function(row){ return Object.values(row).some(function(v){ return v; }); });
+}
+
+/* ── Sheet → vis-network converters ── */
+function sheetCluster(c) {
+  c = (c||'').toLowerCase();
+  return c === 'dyer' ? 'red' : c === 'wood' ? 'blue' : 'gray';
+}
+function sheetSize(score) {
+  return ({1:8,2:12,3:16,4:22,5:38})[parseInt(score,10)] || 10;
+}
+function sheetShape(cluster, handle) {
+  if (!handle || !handle.trim()) return 'square';
+  return (cluster === 'red' || cluster === 'blue') ? 'dot' : 'diamond';
+}
+function sheetLabel(name) {
+  var s = (name||'').replace(/_/g,' ').trim();
+  var parts = s.split(' ');
+  return parts.length >= 2 ? parts[0]+'\n'+parts.slice(1).join(' ') : s;
+}
+function sheetPhase(p) {
+  p = (p||'').toLowerCase();
+  if (p.includes('long') || p === 'pre-debate' || p.startsWith('pre')) return 'pre';
+  if (p.includes('debate') && !p.includes('post')) return 'debate';
+  return 'post';
+}
+function sheetEdgeType(t) {
+  var map = { collaborates:'past_collab', collab:'past_collab' };
+  return map[t] || t || 'questions';
+}
+
 /* ── Config ── */
 var COLORS = {
   attacks:'#f85149', defends:'#58a6ff', past_collab:'#3fb950',
   collaborates:'#3fb950', repost:'#00b4d8',
-  debates:'#bc8cff', blocks:'#d29922', questions:'#6e7681', mentions:'#6e7681'
+  debates:'#bc8cff', blocks:'#d29922', questions:'#6e7681', mentions:'#6e7681',
+  quotes:'#e0a800'
 };
 var CLUSTER_COLORS = {
   red:  {bg:'#f85149',bd:'#da3633',hBg:'#ff7b73',hBd:'#f85149'},
@@ -223,7 +278,7 @@ var PHASE_LABELS = {};
 var visNodes, visEdges, nodes, edges, network;
 
 var activeClusters = new Set(['red','blue','gray']);
-var activeEdgeTypes = new Set(['attacks','defends','past_collab','debates','blocks','neutral']); // repost intentionally omitted — off by default
+var activeEdgeTypes = new Set(['attacks','defends','past_collab','debates','blocks','neutral']); // repost and quotes intentionally omitted — off by default
 var activePhase = 'all';
 var evoTimer = null, evoRunning = false;
 
@@ -240,26 +295,83 @@ function edgeColor(eType){var c=COLORS[eType]||'#6e7681';return {color:c,highlig
 function edgeFGroup(eType){
   if(eType==='questions'||eType==='mentions') return 'neutral';
   if(eType==='collaborates') return 'past_collab';
+  if(eType==='quotes') return 'quotes';
   return eType;
 }
 function nodeFontSize(sz){return sz>=30?14:sz>=18?11:10}
 function cleanLabel(l){return (l||'').replace(/\n/g,' ')}
 
-/* ── Fetch data.json ── */
-var dataUrl = 'data.json';
-fetch(dataUrl + '?_=' + Date.now())
-  .then(function(r){
-    if(!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
+/* ── Fetch live from Google Sheets ── */
+function showLoadError(msg) {
+  document.getElementById('loading').style.display = 'none';
+  var el = document.getElementById('loadError');
+  el.style.display = 'block';
+  var t = document.createElement('strong'); t.textContent = 'Could not load Google Sheet';
+  var d = document.createElement('p'); d.style.cssText='margin:8px 0;color:var(--t2)'; d.textContent = msg;
+  var h = document.createElement('p'); h.style.cssText='font-size:11px;color:var(--t2);margin-top:8px';
+  h.textContent = 'Make sure the sheet is set to "Anyone with the link can view". If opening locally, serve via: python3 -m http.server 8000';
+  el.appendChild(t); el.appendChild(d); el.appendChild(h);
+}
+
+document.getElementById('loading').textContent = 'Loading from Google Sheets…';
+
+Promise.all([
+  fetch(NODES_URL + '&_=' + Date.now()),
+  fetch(EDGES_URL + '&_=' + Date.now())
+])
+  .then(function(rs) {
+    if (!rs[0].ok) throw new Error('Nodes tab HTTP ' + rs[0].status);
+    if (!rs[1].ok) throw new Error('Edges tab HTTP ' + rs[1].status);
+    return Promise.all([rs[0].text(), rs[1].text()]);
   })
-  .then(function(data){init(data)})
-  .catch(function(err){
-    document.getElementById('loading').style.display = 'none';
-    var el = document.getElementById('loadError');
-    el.style.display = 'block';
-    el.innerHTML = '<strong>Failed to load data.json</strong><br><br>' + err.message +
-      '<br><br><span style="color:var(--t2);font-size:11px">If opening locally, serve via a local server:<br><code style="color:var(--green)">python3 -m http.server 8000</code><br>then open <code>http://localhost:8000</code></span>';
-  });
+  .then(function(texts) {
+    var nodeRows = parseCSV(texts[0]);
+    var edgeRows = parseCSV(texts[1]);
+
+    var idMap = {};
+    nodeRows.forEach(function(r){ idMap[String(r.id).trim()] = 'n' + r.id; });
+
+    var nodes = nodeRows.map(function(r) {
+      var cluster = sheetCluster(r.cluster);
+      var size    = sheetSize(r.influence_score);
+      return {
+        id:      idMap[String(r.id).trim()],
+        label:   sheetLabel(r.name),
+        handle:  r.handle || '',
+        cluster: cluster,
+        size:    size,
+        shape:   sheetShape(cluster, r.handle),
+        mass:    size >= 30 ? 3 : size >= 18 ? 1.5 : 1,
+        desc:    r.description || ''
+      };
+    });
+
+    var edges = edgeRows.map(function(r, i) {
+      var from = idMap[String(r.source).trim()];
+      var to   = idMap[String(r.target).trim()];
+      if (!from || !to) return null;
+      return {
+        id:    'e' + (i + 1),
+        from:  from,
+        to:    to,
+        eType: sheetEdgeType(r.type),
+        phase: sheetPhase(r.phase),
+        ts:    r.timestamp || '',
+        note:  r.note || ''
+      };
+    }).filter(Boolean);
+
+    init({
+      meta: {
+        lastUpdated: new Date().toISOString(),
+        source: 'Live from Google Sheets — refreshed on every page load',
+        phases: { pre:'Pre-Debate (May 1–12)', debate:'Debate (May 13)', post:'Post-Debate (May 14+)' }
+      },
+      nodes: nodes,
+      edges: edges
+    });
+  })
+  .catch(function(err){ showLoadError(err.message); });
 
 /* ── Init after data loads ── */
 function init(data){
@@ -289,7 +401,7 @@ function init(data){
   });
 
   visEdges = DATA_EDGES.map(function(e){
-    var isDashed = e.eType==='questions'||e.eType==='mentions'||e.eType==='repost';
+    var isDashed = e.eType==='questions'||e.eType==='mentions'||e.eType==='repost'||e.eType==='quotes';
     var o = {id:e.id, from:e.from, to:e.to,
              label:(e.eType==='past_collab'||e.eType==='collaborates')?'collab':isDashed?'':e.eType,
              color:edgeColor(e.eType),
@@ -418,7 +530,7 @@ window.resetAll = function(){
   document.querySelectorAll('[data-cl]').forEach(function(b){b.classList.add('on')});
   activeEdgeTypes=new Set(['attacks','defends','past_collab','debates','blocks','neutral']);
   document.querySelectorAll('[data-et]').forEach(function(b){
-    b.classList.toggle('on', b.dataset.et !== 'repost');
+    b.classList.toggle('on', b.dataset.et !== 'repost' && b.dataset.et !== 'quotes');
   });
   activePhase='all';
   document.querySelectorAll('.pb').forEach(function(b){b.classList.toggle('on',b.dataset.ph==='all')});

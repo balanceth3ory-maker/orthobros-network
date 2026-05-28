@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-14T23:30:00Z",
-    "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–14 2026)",
+    "lastUpdated": "2026-05-28T12:00:00Z",
+    "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–28 2026)",
     "phases": {
       "pre":    "Pre-Debate (May 1–12)",
       "debate": "Debate (May 13)",
-      "post":   "Post-Debate (May 14)"
+      "post":   "Post-Debate (May 14–28)"
     }
   },
 
@@ -68,7 +68,7 @@
       "size": 16,
       "shape": "dot",
       "x": -160, "y": -180, "mass": 1,
-      "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side."
+      "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side. Subsequently debated Mauler in a May 2026 stream hosted by JPuncut (Truth Cartel)."
     },
     {
       "id": "david_wood",
@@ -109,6 +109,26 @@
       "shape": "dot",
       "x": 420, "y": 110, "mass": 1.5,
       "desc": "Ex-Muslim Christian apologist. Long-term collaborator with David Wood on anti-Islam content."
+    },
+    {
+      "id": "jpuncut",
+      "label": "JPuncut",
+      "handle": "@JPuncut",
+      "cluster": "blue",
+      "size": 22,
+      "shape": "dot",
+      "x": 360, "y": -220, "mass": 1.5,
+      "desc": "Main anti-Orthobro protagonist operating under the Truth Cartel banner. Hosted and co-debated the May 2026 stream pitting Mauler against Andrew Wilson — significant Wood-aligned content hub."
+    },
+    {
+      "id": "mauler",
+      "label": "Mauler",
+      "handle": "",
+      "cluster": "blue",
+      "size": 16,
+      "shape": "dot",
+      "x": 220, "y": -320, "mass": 1,
+      "desc": "Critic of Orthobros. Debated Andrew Wilson in a May 2026 stream hosted by JPuncut, reinforcing the Wood-aligned critique of the Orthobros position."
     },
     {
       "id": "cinemanarchism",
@@ -339,6 +359,36 @@
       "shape": "square",
       "x": 160, "y": -200, "mass": 1,
       "desc": "Reposted GodLogic's support post for Wood."
+    },
+    {
+      "id": "al_j82",
+      "label": "AL_J82",
+      "handle": "@AL_J82",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": 380, "y": 220, "mass": 1,
+      "desc": "Criticized Orthodox focus. Quoted by David Wood on May 16 in a post criticizing Eastern Orthodoxy."
+    },
+    {
+      "id": "gallysback",
+      "label": "Gallysback",
+      "handle": "@Gallysback",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -200, "y": 310, "mass": 1,
+      "desc": "Publicly asked Jay Dyer why he had been blocked — May 16 post-debate fallout."
+    },
+    {
+      "id": "isuch_lenoob",
+      "label": "isuch_lenoob",
+      "handle": "@isuch_lenoob",
+      "cluster": "gray",
+      "size": 12,
+      "shape": "diamond",
+      "x": -420, "y": 100, "mass": 1,
+      "desc": "Active in theological replies engaging with the Dyer side in post-debate threads (May 16)."
     }
   ],
 
@@ -565,6 +615,63 @@
       "eType": "repost", "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted GodLogic's support post for Wood"
+    },
+    {
+      "id": "e37", "from": "david_wood", "to": "al_j82",
+      "eType": "quotes", "phase": "post",
+      "ts": "May 16, 2026",
+      "note": "David Wood quoted AL_J82 criticizing Eastern Orthodoxy",
+      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+    },
+    {
+      "id": "e38", "from": "gallysback", "to": "jay_dyer",
+      "eType": "questions", "phase": "post",
+      "ts": "May 16, 2026",
+      "note": "Gallysback publicly asked Jay Dyer why he was blocked"
+    },
+    {
+      "id": "e39", "from": "isuch_lenoob", "to": "jay_dyer",
+      "eType": "questions", "phase": "post",
+      "ts": "May 16, 2026",
+      "note": "isuch_lenoob engaged in theological debate with the Dyer side"
+    },
+    {
+      "id": "e40", "from": "vikingprime", "to": "jay_dyer",
+      "eType": "repost", "phase": "post",
+      "ts": "May 16, 2026",
+      "note": "Reposted Jay Dyer's provocative posts"
+    },
+    {
+      "id": "e41", "from": "mormonger", "to": "david_wood",
+      "eType": "repost", "phase": "post",
+      "ts": "May 16, 2026",
+      "note": "Reposted David Wood's response to Orthodoxy criticism"
+    },
+    {
+      "id": "e42", "from": "jpuncut", "to": "david_wood",
+      "eType": "collaborates", "phase": "post",
+      "ts": "May 2026",
+      "note": "JPuncut (Truth Cartel) aligned with David Wood's anti-Orthobros campaign — hosted streams amplifying Wood-side critique",
+      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+    },
+    {
+      "id": "e43", "from": "jpuncut", "to": "mauler",
+      "eType": "collaborates", "phase": "post",
+      "ts": "May 2026",
+      "note": "JPuncut hosted Mauler for the debate against Andrew Wilson on the Truth Cartel channel"
+    },
+    {
+      "id": "e44", "from": "mauler", "to": "andrew_wilson",
+      "eType": "debates", "phase": "post",
+      "ts": "May 2026",
+      "note": "Mauler debated Andrew Wilson in a JPuncut-hosted stream — a second front in the Orthobros debate"
+    },
+    {
+      "id": "e45", "from": "jpuncut", "to": "andrew_wilson",
+      "eType": "attacks", "phase": "post",
+      "ts": "May 2026",
+      "note": "JPuncut's Truth Cartel channel framed the Mauler vs Andrew Wilson debate as anti-Orthobros content",
+      "smooth": { "type": "curvedCW", "roundness": 0.25 }
     }
   ]
 }
