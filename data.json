@@ -1,12 +1,25 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T20:00:00Z",
-    "source": "Public X posts & YouTube — accounts with repeated interactions in the Jay Dyer / Orthobros vs David Wood / GodLogic conflict (May 7–Aug 3 2026)",
+    "lastUpdated": "2026-08-03T22:00:00Z",
+    "source": "Public X posts & YouTube only (data.json is sole source of truth; Google Sheet retired)",
     "phases": {
       "pre": "Pre-Debate (May 1–12)",
       "debate": "Debate (May 13)",
       "post": "Post-Debate (May 14–Aug 3)"
-    }
+    },
+    "edgeCoding": {
+      "attacks": "Source publicly criticizes, mocks, or campaigns against target (posts, streams, reaction content)",
+      "defends": "Source publicly supports target against critics or endorses their side in the conflict",
+      "collaborates": "Joint livestream/content, co-hosting, or clear working alliance (not mere agreement)",
+      "past_collab": "Documented collaboration that predated the conflict (kept even if relationship later broke)",
+      "debates": "Formal live debate that actually occurred (not merely scheduled or discussed)",
+      "blocks": "Public discussion of blocking / hard social cutoff",
+      "questions": "Engagement without clear camp loyalty (pushback, inquiry, fatigue)",
+      "mentions": "Name-check without strong valence",
+      "repost": "Amplification via repost",
+      "quotes": "Quote-tweet engagement"
+    },
+    "notes": "Direction is always source → target. Cluster is a snapshot of primary camp alignment at last update; edges capture history including realignments."
   },
   "nodes": [
     {
@@ -19,7 +32,7 @@
       "x": -280,
       "y": 0,
       "mass": 3,
-      "desc": "Central Orthobros figure and public blocker. Initiated attacks on GodLogic and Wood in May; continued through summer (icons-debate framing, GodLogic grifter claims, Aug 2–3 streams refuting GodLogic & Trent Horn). Highest centrality in the conflict network."
+      "desc": "Central Orthobros figure. May attacks on Avery/Wood; summer icons-debate framing vs Wood; Aug 2–4 content war vs GodLogic (grifter claim, metrics posts, 'Godlogic & Trent Horn Refuted' stream). Aug 2 endorsed Sam's anti-GodLogic turn without joining Wood's camp."
     },
     {
       "id": "byjimbob",
@@ -91,7 +104,7 @@
       "x": 280,
       "y": 0,
       "mass": 3,
-      "desc": "Central Wood-side figure. May 13 debate + '10 Problems with Eastern Orthodoxy' series; June Orthodoxy critique streams (incl. Schooping); July defense of GodLogic against Sam Shamoun; multi-apologist lives with GodLogic, Apostate Prophet, InspiringPhilosophy. Scheduled icons debate framing vs Dyer (reported Oct)."
+      "desc": "Central Wood-side figure. May 13 debate + Orthodoxy critique series; June Schooping stream; late July defense of GodLogic and attacks on Sam Shamoun; July 28 multi-apologist live with GodLogic, InspiringPhilosophy, Apostate Prophet. Icons debate with Dyer discussed publicly (not coded as debates until it occurs)."
     },
     {
       "id": "godlogic_avery",
@@ -103,7 +116,7 @@
       "x": 100,
       "y": -130,
       "mass": 2,
-      "desc": "Major catalyst. Past collab with Dyer, then attacked over grift accusations and aligned with Wood. Summer 2026: target of renewed Orthobros + Sam Shamoun critique; defended by Wood; subject of Dyer 'refuted' streams and C2Antiquity rebuttals."
+      "desc": "Catalyst figure. Past collab with Dyer (pre), then attacked by Dyer over grift claims and aligned with Wood. Summer: defended by Wood; attacked by Sam (per Wood/Dyer accounts of Sam's content), Dyer, and C2Antiquity streams."
     },
     {
       "id": "sam_shamoun",
@@ -115,7 +128,7 @@
       "x": 40,
       "y": 180,
       "mass": 1.8,
-      "desc": "Prominent apologist and former close Wood collaborator. July 2026: publicly attacked GodLogic (grifter claims); Wood accused Sam of aligning with Dawah + Orthobros against Avery. Dyer claimed Aug 2 that Sam 'came around' on GodLogic. Now a contested bridge/split node rather than pure Wood loyalist."
+      "desc": "Apologist and long-time Wood collaborator historically (pre edge). Late July 2026: Wood publicly accused Sam of teaming with Dawah and Orthobros to attack GodLogic; Wood continued anti-Sam posts into early August. Aug 2: Dyer posted that Sam 'came around' that GodLogic is a grifter. Cluster = gray (bridge/split) — not pure Wood loyalist after the July fracture."
     },
     {
       "id": "apostate_prophet",
@@ -475,7 +488,7 @@
       "x": 340,
       "y": 200,
       "mass": 1.3,
-      "desc": "Michael Jones — philosophy/apologetics YouTuber. Joined David Wood live July 28 with GodLogic and Apostate Prophet; Wood-circle collaborator in the summer phase."
+      "desc": "Michael Jones (@InspiringPhilos). Co-appeared on David Wood's July 28 live with GodLogic and Apostate Prophet — Wood-circle collaboration, not a primary Orthobros conflict protagonist."
     },
     {
       "id": "joshua_schooping",
@@ -499,7 +512,7 @@
       "x": -40,
       "y": -360,
       "mass": 1,
-      "desc": "Catholic apologist. Named target of Jay Dyer's Aug 3–4 stream ('Godlogic & Trent Horn Refuted') — secondary front in the summer content war."
+      "desc": "Catholic apologist. Passive target only — named in Dyer's Aug 3–4 stream title alongside GodLogic; no coded outgoing ties in this map."
     },
     {
       "id": "facingeast",
@@ -511,7 +524,7 @@
       "x": -240,
       "y": -280,
       "mass": 1,
-      "desc": "Orthodox-leaning commentator. Aug 2026 posts amplifying Dyer debate offers to GodLogic and framing Wood/icons debate as exposure of 'grifters'."
+      "desc": "Low-reach Orthobros-leaning commentator (@FacingEast1). Aug 2 posts pressuring GodLogic and amplifying Dyer debate offers. Included for the summer fringe signal, not as a major hub."
     }
   ],
   "edges": [
@@ -614,12 +627,12 @@
     },
     {
       "id": "e10",
-      "from": "godlogic_avery",
-      "to": "david_wood",
+      "from": "david_wood",
+      "to": "godlogic_avery",
       "eType": "defends",
       "phase": "post",
       "ts": "May 14, 2026",
-      "note": "GodLogic supported by Wood — featured in Wood's May 14 post",
+      "note": "Wood publicly supports GodLogic after the Dyer schism (featured in Wood's May 14 framing) — Wood → Avery defense",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.15
@@ -967,7 +980,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "June 14, 2026",
-      "note": "Dyer: Wood can't articulate Protestant basics / just learned Orthodoxy, but wants icons debate after declining earlier offers — frames Wood as bad-faith",
+      "note": "Dyer June 14: Wood can't articulate Protestant basics / only recently learned Orthodoxy but wants icons debate after declining earlier offers. Public criticism of Wood's motives — attacks (not a completed debate).",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.15
@@ -980,7 +993,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "June 20, 2026",
-      "note": "Wood hosts Orthodoxy / Orthobros critique series; invites Orthobros to defend; features Joshua Schooping (ex-Orthodox priest)",
+      "note": "Wood June 20 Orthodoxy/Orthobros critique series ('OrthoBros, come defend your claims'); features Schooping. Campaign against Orthobros framed with Dyer as central foil — coded Wood → Dyer attacks.",
       "smooth": {
         "type": "curvedCCW",
         "roundness": 0.15
@@ -988,12 +1001,12 @@
     },
     {
       "id": "e48",
-      "from": "joshua_schooping",
-      "to": "david_wood",
+      "from": "david_wood",
+      "to": "joshua_schooping",
       "eType": "collaborates",
       "phase": "post",
       "ts": "June 20, 2026",
-      "note": "Schooping appears on Wood stream explaining exit from Eastern Orthodoxy"
+      "note": "Wood platforms Schooping (ex-Orthodox priest) on June 20 Orthodoxy critique stream — host→guest collab"
     },
     {
       "id": "e49",
@@ -1002,7 +1015,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "June 26, 2026",
-      "note": "Wood amplifies Noah Jefferson 'Orthobro cult' critique and claims Orthobros are 'brainwashed' re: Dyer",
+      "note": "Wood June 26 posts amplifying 'Orthobro cult' critique (Noah Jefferson article) and claiming Orthobros are brainwashed re: Dyer. Wood → Dyer/Orthobros attacks.",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.28
@@ -1014,8 +1027,8 @@
       "to": "sam_shamoun",
       "eType": "attacks",
       "phase": "post",
-      "ts": "July 26–27, 2026",
-      "note": "Wood: Sam calls Avery a grifter; Muslims cheer; Sam allegedly teams with DawahBros and OrthoBros to 'expose' GodLogic — major Wood-circle fracture",
+      "ts": "July 26–Aug 2, 2026",
+      "note": "Wood campaign against Sam: July 26 video (Sam calls Avery a grifter; wrath-of-God framing); July 27 video claiming Sam teams with DawahBros + OrthoBros to 'expose' GodLogic; Aug 2 post that Sam is 'helping Muslims prepare for debates against Christians'. Clear Wood → Sam attacks.",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.22
@@ -1027,8 +1040,8 @@
       "to": "godlogic_avery",
       "eType": "attacks",
       "phase": "post",
-      "ts": "July 26–30, 2026",
-      "note": "Sam Shamoun public attacks on GodLogic (grifter / disobedience claims); widely circulated as a summer flashpoint",
+      "ts": "July 26–Aug 2, 2026",
+      "note": "Sam → GodLogic hostility coded from: (1) Wood's July 26–27 posts attributing grifter/wrath attacks and an Orthobros+Dawah alliance against Avery; (2) Dyer's Aug 2 post 'Sam Shamoun has come around… Godlogic is a grifter' linking a YouTube clip. Valence = attacks; primary evidence is multi-source public attribution, not a single archived Sam tweet in this dataset.",
       "smooth": {
         "type": "curvedCCW",
         "roundness": 0.2
@@ -1041,7 +1054,7 @@
       "eType": "defends",
       "phase": "post",
       "ts": "July 26–28, 2026",
-      "note": "Wood defends Avery against Sam and Orthobros-aligned pressure; continues joint streaming",
+      "note": "Wood defends Avery while attacking Sam: continues joint streaming and framing that protects GodLogic (e.g. July 28 live with Avery; July 27 sarcasm posts). Distinct from May e10 defense.",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.18
@@ -1054,25 +1067,16 @@
       "eType": "collaborates",
       "phase": "post",
       "ts": "July 28, 2026",
-      "note": "Wood LIVE with InspiringPhilosophy, GodLogic, Apostate Prophet — consolidated Wood-circle response stream"
-    },
-    {
-      "id": "e54",
-      "from": "godlogic_avery",
-      "to": "inspiringphilosophy",
-      "eType": "collaborates",
-      "phase": "post",
-      "ts": "July 28, 2026",
-      "note": "GodLogic co-appears on Wood multi-apologist live with IP and Apostate Prophet"
+      "note": "Wood hosts July 28 YouTube live with @InspiringPhilos, @GodLogic_GL, @ApostateProphet (and Than) — host→guest collab"
     },
     {
       "id": "e55",
-      "from": "apostate_prophet",
-      "to": "david_wood",
+      "from": "david_wood",
+      "to": "apostate_prophet",
       "eType": "collaborates",
       "phase": "post",
       "ts": "July 28, 2026",
-      "note": "Apostate Prophet on Wood live with GodLogic and InspiringPhilosophy"
+      "note": "Wood hosts July 28 live including Apostate Prophet — host→guest collab (same stream as e53)"
     },
     {
       "id": "e56",
@@ -1081,7 +1085,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "August 2, 2026",
-      "note": "Dyer: Sam Shamoun 'came around' that GodLogic is a grifter; metrics comparison vs GodLogic; continued public pressure",
+      "note": "Dyer posts that Sam 'came around' that GodLogic is a grifter (links YouTube); separate posts compare metrics and pressure Avery. Coded as Dyer → GodLogic attacks (primary target is Avery).",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.32
@@ -1091,10 +1095,10 @@
       "id": "e57",
       "from": "jay_dyer",
       "to": "sam_shamoun",
-      "eType": "defends",
+      "eType": "collaborates",
       "phase": "post",
       "ts": "August 2, 2026",
-      "note": "Dyer publicly endorses Sam's turn against GodLogic — temporary Orthobros–Shamoun alignment signal",
+      "note": "Temporary public alignment: Dyer endorses Sam's anti-GodLogic turn ('came around to exactly what I said'). Not personal defense of Sam against Wood; coded collaborates = alliance signal Orthobros↔Sam on the Avery front only.",
       "smooth": {
         "type": "curvedCCW",
         "roundness": 0.25
@@ -1107,7 +1111,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "August 3–4, 2026",
-      "note": "Dyer live stream: 'The Spain ISSUE, Godlogic & Trent Horn Refuted…' — major content attack on Avery",
+      "note": "Dyer live/broadcast 'The Spain ISSUE, Godlogic & Trent Horn Refuted…' — formal content attack on Avery (distinct from Aug 2 posts)",
       "smooth": {
         "type": "curvedCW",
         "roundness": 0.38
@@ -1120,7 +1124,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "August 3–4, 2026",
-      "note": "Same stream pairs Trent Horn with GodLogic as targets of Dyer's critique"
+      "note": "Same Aug 3–4 Dyer stream names Trent Horn as a critique target alongside GodLogic (Horn is a passive target here)"
     },
     {
       "id": "e60",
@@ -1129,7 +1133,7 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "August 3, 2026",
-      "note": "C2Antiquity streams/posts debunking GodLogic 'Orthobros worse than Muslims' / churchless apologetics framing",
+      "note": "C2Antiquity Aug 3 posts/streams rebutting GodLogic (e.g. 'Orthobros are WORSE than Muslims' framing, churchless apologetics). Clear Orthobros-side content attack on Avery.",
       "smooth": {
         "type": "curvedCCW",
         "roundness": 0.22
@@ -1142,7 +1146,7 @@
       "eType": "defends",
       "phase": "post",
       "ts": "August 2, 2026",
-      "note": "FacingEast amplifies Dyer debate offers to GodLogic and icons-debate narrative vs Wood"
+      "note": "FacingEast amplifies Dyer (debate offers to GodLogic, icons-debate narrative). Low-reach defense/amplification of Dyer."
     },
     {
       "id": "e62",
@@ -1151,20 +1155,16 @@
       "eType": "attacks",
       "phase": "post",
       "ts": "August 2, 2026",
-      "note": "FacingEast: pressure on Avery to engage; frames silence as evidence of grift"
+      "note": "FacingEast pressure posts framing Avery as evasive/'grifter' for not engaging. Weak but directed hostility."
     },
     {
-      "id": "e63",
+      "id": "e64",
       "from": "david_wood",
-      "to": "jay_dyer",
-      "eType": "debates",
+      "to": "godlogic_avery",
+      "eType": "collaborates",
       "phase": "post",
-      "ts": "Summer 2026 (scheduled)",
-      "note": "Public discourse around a forthcoming Wood vs Dyer icons debate (community reports pointing to autumn date) — escalates stakes beyond May proxy debate",
-      "smooth": {
-        "type": "curvedCW",
-        "roundness": 0.08
-      }
+      "ts": "July 28, 2026",
+      "note": "Wood hosts July 28 live with GodLogic as co-guest (with IP & Apostate Prophet) — host→guest collab, separate from defense-against-Sam edges"
     }
   ]
 }
