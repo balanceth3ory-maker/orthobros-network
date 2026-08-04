@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T23:00:00Z",
+    "lastUpdated": "2026-08-03T23:30:00Z",
     "source": "Public X posts & YouTube only (data.json is sole source of truth; Google Sheet retired)",
     "phases": {
       "pre": "Pre-Debate (May 1–12)",
@@ -86,14 +86,14 @@
     {
       "id": "andrew_wilson",
       "label": "Andrew\nWilson",
-      "handle": "The Crucible",
+      "handle": "@paleochristian",
       "cluster": "red",
       "size": 16,
       "shape": "dot",
       "x": -160,
       "y": -180,
       "mass": 1,
-      "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side. Subsequently debated Mauler in a May 2026 stream hosted by JPuncut (Truth Cartel)."
+      "desc": "Orthodox debater (@paleochristian / The Crucible). Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side. Subsequently debated Mauler in a May 2026 stream hosted by JPuncut (Truth Cartel)."
     },
     {
       "id": "david_wood",
