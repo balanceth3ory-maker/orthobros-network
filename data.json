@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T23:45:00Z",
+    "lastUpdated": "2026-08-04T00:00:00Z",
     "source": "Public X posts & YouTube only (data.json is sole source of truth; Google Sheet retired)",
     "phases": {
       "pre": "Pre-Debate (May 1–12)",
@@ -158,14 +158,14 @@
     {
       "id": "mauler",
       "label": "Mauler",
-      "handle": "@MauLer93",
+      "handle": "",
       "cluster": "blue",
       "size": 16,
       "shape": "dot",
       "x": 220,
       "y": -320,
       "mass": 1,
-      "desc": "Critic of Orthobros (@MauLer93). Debated Andrew Wilson in a May 2026 stream hosted by JPuncut, reinforcing the Wood-aligned critique of the Orthobros side."
+      "desc": "Critic of Orthobros. Debated Andrew Wilson in a May 2026 stream hosted by JPuncut, reinforcing the Wood-aligned critique of the Orthobros position."
     },
     {
       "id": "cinemanarchism",
