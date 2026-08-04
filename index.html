@@ -112,8 +112,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <body>
 
 <div class="hdr">
-  <h1>Network Evolution: Jay Dyer vs David Wood Conflict (May 2026)</h1>
-  <div class="sub">Mentions, Blocks, YouTube Debates &mdash; Three phases: Pre-Debate (May 1&ndash;12) &rarr; Debate (May 13) &rarr; Post-Debate (May 14&ndash;28). Data from public X posts &amp; YouTube.</div>
+  <h1>Network Evolution: Jay Dyer vs David Wood Conflict (May–Aug 2026)</h1>
+  <div class="sub">Mentions, Blocks, YouTube Debates &mdash; Three phases: Pre-Debate (May 1&ndash;12) &rarr; Debate (May 13) &rarr; Post-Debate (May 14&ndash;Aug 3). Data from public X posts &amp; YouTube.</div>
   <div class="updated" id="lastUpdated"></div>
 </div>
 
@@ -182,15 +182,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     <button class="ib" onclick="togInfo()">&#8505; How to read this map</button>
     <div class="ip" id="infoP">
       <h4>How to read this map</h4>
-      <p>Each node is a real public account observed in the May 2026 apologetics conflict. Arrows show who engaged whom and how.</p>
+      <p>Each node is a real public account observed in the May–Aug 2026 apologetics conflict. Arrows show who engaged whom and how.</p>
       <p><strong>Three phases:</strong></p>
       <ul>
         <li><strong>Pre-Debate (May 1&ndash;12)</strong> &mdash; Dyer attacks Avery &amp; Wood; Wood fires back at Orthobros</li>
         <li><strong>Debate (May 13)</strong> &mdash; Andrew Wilson proxy-debates Wood live on YouTube</li>
-        <li><strong>Post-Debate (May 14&ndash;28)</strong> &mdash; Wood announces critique series; Dyer blocks critics; JPuncut (Truth Cartel) hosts Mauler vs Andrew Wilson debate; loyalists rally; observers call for peace</li>
+        <li><strong>Post-Debate (May 14&ndash;Aug 3)</strong> &mdash; Wood Orthodoxy series; JPuncut/Mauler vs Wilson; June icons-debate framing; July Shamoun–GodLogic fracture; Aug Dyer/C2Antiquity counter-streams</li>
       </ul>
       <p><strong>Play Evolution</strong> animates the network growing chronologically so you can watch the conflict escalate.</p>
-      <p><strong>Key pattern:</strong> GodLogic Avery flipped from Dyer collaborator (green) to Wood-aligned defender (blue) &mdash; the catalyst event. A second front opened with JPuncut hosting Mauler to debate Andrew Wilson.</p>
+      <p><strong>Key patterns:</strong> GodLogic Avery flipped from Dyer collaborator (green) to Wood-aligned defender (blue) &mdash; the catalyst. A second front opened with JPuncut hosting Mauler vs Andrew Wilson. In July, Sam Shamoun broke with the Wood/GodLogic camp (now shown as observer/bridge), while Wood consolidated with IP and Apostate Prophet.</p>
       <p class="sn" id="infoSource"></p>
     </div>
   </div>
@@ -206,56 +206,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 (function(){
 'use strict';
 
-/* ── Sheet config ── */
-var SHEET_ID = '1Mf4f_Uvx7QMXeWdAdQ4UzYpkSBH5yhqaa7OfSe_Sbtk';
-var NODES_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=0';
-var EDGES_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=1946166123';
-
-/* ── CSV parser ── */
-function parseCSV(text) {
-  var lines = text.trim().split('\n');
-  var headers = lines[0].split(',').map(function(h){ return h.trim().replace(/^"|"$/g,''); });
-  return lines.slice(1).map(function(line) {
-    var vals = [], cur = '', inQ = false;
-    for (var i = 0; i < line.length; i++) {
-      if (line[i] === '"') { inQ = !inQ; }
-      else if (line[i] === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
-      else { cur += line[i]; }
-    }
-    vals.push(cur.trim());
-    var obj = {};
-    headers.forEach(function(h,i){ obj[h] = (vals[i]||'').replace(/^"|"$/g,''); });
-    return obj;
-  }).filter(function(row){ return Object.values(row).some(function(v){ return v; }); });
-}
-
-/* ── Sheet → vis-network converters ── */
-function sheetCluster(c) {
-  c = (c||'').toLowerCase();
-  return c === 'dyer' ? 'red' : c === 'wood' ? 'blue' : 'gray';
-}
-function sheetSize(score) {
-  return ({1:8,2:12,3:16,4:22,5:38})[parseInt(score,10)] || 10;
-}
-function sheetShape(cluster, handle) {
-  if (!handle || !handle.trim()) return 'square';
-  return (cluster === 'red' || cluster === 'blue') ? 'dot' : 'diamond';
-}
-function sheetLabel(name) {
-  var s = (name||'').replace(/_/g,' ').trim();
-  var parts = s.split(' ');
-  return parts.length >= 2 ? parts[0]+'\n'+parts.slice(1).join(' ') : s;
-}
-function sheetPhase(p) {
-  p = (p||'').toLowerCase();
-  if (p.includes('long') || p === 'pre-debate' || p.startsWith('pre')) return 'pre';
-  if (p.includes('debate') && !p.includes('post')) return 'debate';
-  return 'post';
-}
-function sheetEdgeType(t) {
-  var map = { collaborates:'past_collab', collab:'past_collab' };
-  return map[t] || t || 'questions';
-}
+/* ── Data source: local data.json (updated via git deploy) ── */
+var DATA_URL = 'data.json';
 
 /* ── Config ── */
 var COLORS = {
@@ -301,76 +253,26 @@ function edgeFGroup(eType){
 function nodeFontSize(sz){return sz>=30?14:sz>=18?11:10}
 function cleanLabel(l){return (l||'').replace(/\n/g,' ')}
 
-/* ── Fetch live from Google Sheets ── */
+/* ── Fetch data.json ── */
 function showLoadError(msg) {
   document.getElementById('loading').style.display = 'none';
   var el = document.getElementById('loadError');
   el.style.display = 'block';
-  var t = document.createElement('strong'); t.textContent = 'Could not load Google Sheet';
+  var t = document.createElement('strong'); t.textContent = 'Could not load data.json';
   var d = document.createElement('p'); d.style.cssText='margin:8px 0;color:var(--t2)'; d.textContent = msg;
   var h = document.createElement('p'); h.style.cssText='font-size:11px;color:var(--t2);margin-top:8px';
-  h.textContent = 'Make sure the sheet is set to "Anyone with the link can view". If opening locally, serve via: python3 -m http.server 8000';
+  h.textContent = 'If opening locally, serve via: python3 -m http.server 8000';
   el.appendChild(t); el.appendChild(d); el.appendChild(h);
 }
 
-document.getElementById('loading').textContent = 'Loading from Google Sheets…';
+document.getElementById('loading').textContent = 'Loading network data…';
 
-Promise.all([
-  fetch(NODES_URL + '&_=' + Date.now()),
-  fetch(EDGES_URL + '&_=' + Date.now())
-])
-  .then(function(rs) {
-    if (!rs[0].ok) throw new Error('Nodes tab HTTP ' + rs[0].status);
-    if (!rs[1].ok) throw new Error('Edges tab HTTP ' + rs[1].status);
-    return Promise.all([rs[0].text(), rs[1].text()]);
+fetch(DATA_URL + '?_=' + Date.now())
+  .then(function(r) {
+    if (!r.ok) throw new Error('data.json HTTP ' + r.status);
+    return r.json();
   })
-  .then(function(texts) {
-    var nodeRows = parseCSV(texts[0]);
-    var edgeRows = parseCSV(texts[1]);
-
-    var idMap = {};
-    nodeRows.forEach(function(r){ idMap[String(r.id).trim()] = 'n' + r.id; });
-
-    var nodes = nodeRows.map(function(r) {
-      var cluster = sheetCluster(r.cluster);
-      var size    = sheetSize(r.influence_score);
-      return {
-        id:      idMap[String(r.id).trim()],
-        label:   sheetLabel(r.name),
-        handle:  r.handle || '',
-        cluster: cluster,
-        size:    size,
-        shape:   sheetShape(cluster, r.handle),
-        mass:    size >= 30 ? 3 : size >= 18 ? 1.5 : 1,
-        desc:    r.description || ''
-      };
-    });
-
-    var edges = edgeRows.map(function(r, i) {
-      var from = idMap[String(r.source).trim()];
-      var to   = idMap[String(r.target).trim()];
-      if (!from || !to) return null;
-      return {
-        id:    'e' + (i + 1),
-        from:  from,
-        to:    to,
-        eType: sheetEdgeType(r.type),
-        phase: sheetPhase(r.phase),
-        ts:    r.timestamp || '',
-        note:  r.note || ''
-      };
-    }).filter(Boolean);
-
-    init({
-      meta: {
-        lastUpdated: new Date().toISOString(),
-        source: 'Live from Google Sheets — refreshed on every page load',
-        phases: { pre:'Pre-Debate (May 1–12)', debate:'Debate (May 13)', post:'Post-Debate (May 14+)' }
-      },
-      nodes: nodes,
-      edges: edges
-    });
-  })
+  .then(function(data) { init(data); })
   .catch(function(err){ showLoadError(err.message); });
 
 /* ── Init after data loads ── */

@@ -1,14 +1,13 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-28T12:00:00Z",
-    "source": "Public X posts & YouTube — sourced from Google Sheet (accounts with 3+ interactions, May 7–28 2026)",
+    "lastUpdated": "2026-08-03T20:00:00Z",
+    "source": "Public X posts & YouTube — accounts with repeated interactions in the Jay Dyer / Orthobros vs David Wood / GodLogic conflict (May 7–Aug 3 2026)",
     "phases": {
-      "pre":    "Pre-Debate (May 1–12)",
+      "pre": "Pre-Debate (May 1–12)",
       "debate": "Debate (May 13)",
-      "post":   "Post-Debate (May 14–28)"
+      "post": "Post-Debate (May 14–Aug 3)"
     }
   },
-
   "nodes": [
     {
       "id": "jay_dyer",
@@ -17,8 +16,10 @@
       "cluster": "red",
       "size": 38,
       "shape": "dot",
-      "x": -280, "y": 0, "mass": 3,
-      "desc": "Central provocateur and public blocker. Initiated attacks on GodLogic and Wood, engaged in mass blocking of critics. Highest centrality in the conflict network."
+      "x": -280,
+      "y": 0,
+      "mass": 3,
+      "desc": "Central Orthobros figure and public blocker. Initiated attacks on GodLogic and Wood in May; continued through summer (icons-debate framing, GodLogic grifter claims, Aug 2–3 streams refuting GodLogic & Trent Horn). Highest centrality in the conflict network."
     },
     {
       "id": "byjimbob",
@@ -27,8 +28,10 @@
       "cluster": "red",
       "size": 22,
       "shape": "dot",
-      "x": -190, "y": 200, "mass": 1.5,
-      "desc": "Active content creator. Ran multiple reaction Spaces on May 13, including 'Andrew Wilson Puts Wood In The Chipper' — high-engagement Orthobros output."
+      "x": -190,
+      "y": 200,
+      "mass": 1.5,
+      "desc": "Orthodox content creator. May 13 reaction Spaces ('Andrew Wilson Puts Wood In The Chipper'); summer posts amplifying Dyer (incl. Tucker appearance) and sparring over Orthobro critiques."
     },
     {
       "id": "orthodox_elijah",
@@ -37,7 +40,9 @@
       "cluster": "red",
       "size": 16,
       "shape": "dot",
-      "x": -340, "y": 160, "mass": 1,
+      "x": -340,
+      "y": 160,
+      "mass": 1,
       "desc": "Strong Dyer defender. Criticized Wood's debate performance on May 13, actively countering the Wood side."
     },
     {
@@ -47,7 +52,9 @@
       "cluster": "red",
       "size": 16,
       "shape": "dot",
-      "x": -440, "y": 20, "mass": 1,
+      "x": -440,
+      "y": 20,
+      "mass": 1,
       "desc": "Dyer supporter active across both debate and post-debate phases. Consistent thread defense of the Orthobros position."
     },
     {
@@ -55,10 +62,12 @@
       "label": "C2Antiquity",
       "handle": "@C2Antiquity",
       "cluster": "red",
-      "size": 16,
+      "size": 20,
       "shape": "dot",
-      "x": -360, "y": -140, "mass": 1,
-      "desc": "Strong public defender of Dyer. Posted a high-engagement support thread on May 14 amplifying the Orthobros position."
+      "x": -360,
+      "y": -140,
+      "mass": 1.4,
+      "desc": "Strong public Dyer/Orthobros defender. May 14 high-engagement support posts; Aug 3 streams rebutting GodLogic claims that Orthobros are 'worse than Muslims' / churchless apologetics."
     },
     {
       "id": "andrew_wilson",
@@ -67,7 +76,9 @@
       "cluster": "red",
       "size": 16,
       "shape": "dot",
-      "x": -160, "y": -180, "mass": 1,
+      "x": -160,
+      "y": -180,
+      "mass": 1,
       "desc": "Orthodox debater. Faced David Wood in the live May 13 YouTube debate 'Why Are OrthoBros Helping Jihadis?' — formal representative of the Orthobros side. Subsequently debated Mauler in a May 2026 stream hosted by JPuncut (Truth Cartel)."
     },
     {
@@ -77,28 +88,34 @@
       "cluster": "blue",
       "size": 38,
       "shape": "dot",
-      "x": 280, "y": 0, "mass": 3,
-      "desc": "Central figure with high engagement. Hosted major May 13 debate, announced '10 Problems with Eastern Orthodoxy' series May 14, and publicly supported GodLogic after the schism."
+      "x": 280,
+      "y": 0,
+      "mass": 3,
+      "desc": "Central Wood-side figure. May 13 debate + '10 Problems with Eastern Orthodoxy' series; June Orthodoxy critique streams (incl. Schooping); July defense of GodLogic against Sam Shamoun; multi-apologist lives with GodLogic, Apostate Prophet, InspiringPhilosophy. Scheduled icons debate framing vs Dyer (reported Oct)."
     },
     {
       "id": "godlogic_avery",
       "label": "GodLogic GL",
       "handle": "@GodLogic_GL",
       "cluster": "blue",
-      "size": 22,
+      "size": 26,
       "shape": "dot",
-      "x": 100, "y": -130, "mass": 1.5,
-      "desc": "Major catalyst. Previously collaborated with Dyer on anti-Islam streams, then attacked by Dyer over grift accusations. Flipped to Wood's side — the event that triggered the broader schism. Featured in Wood's May 14 post."
+      "x": 100,
+      "y": -130,
+      "mass": 2,
+      "desc": "Major catalyst. Past collab with Dyer, then attacked over grift accusations and aligned with Wood. Summer 2026: target of renewed Orthobros + Sam Shamoun critique; defended by Wood; subject of Dyer 'refuted' streams and C2Antiquity rebuttals."
     },
     {
       "id": "sam_shamoun",
       "label": "Sam\nShamoun",
       "handle": "@shamounian",
-      "cluster": "blue",
-      "size": 22,
+      "cluster": "gray",
+      "size": 24,
       "shape": "dot",
-      "x": 420, "y": -110, "mass": 1.5,
-      "desc": "Prominent Evangelical apologist and long-term David Wood collaborator. Frequently mentioned in the debate space."
+      "x": 40,
+      "y": 180,
+      "mass": 1.8,
+      "desc": "Prominent apologist and former close Wood collaborator. July 2026: publicly attacked GodLogic (grifter claims); Wood accused Sam of aligning with Dawah + Orthobros against Avery. Dyer claimed Aug 2 that Sam 'came around' on GodLogic. Now a contested bridge/split node rather than pure Wood loyalist."
     },
     {
       "id": "apostate_prophet",
@@ -107,8 +124,10 @@
       "cluster": "blue",
       "size": 22,
       "shape": "dot",
-      "x": 420, "y": 110, "mass": 1.5,
-      "desc": "Ex-Muslim Christian apologist. Long-term collaborator with David Wood on anti-Islam content."
+      "x": 420,
+      "y": 110,
+      "mass": 1.5,
+      "desc": "Ex-Muslim Christian apologist; long-term Wood collaborator. Appeared on July 28 Wood live with GodLogic and InspiringPhilosophy — signaling continued Wood-circle cohesion after the Shamoun split."
     },
     {
       "id": "jpuncut",
@@ -117,7 +136,9 @@
       "cluster": "blue",
       "size": 22,
       "shape": "dot",
-      "x": 360, "y": -220, "mass": 1.5,
+      "x": 360,
+      "y": -220,
+      "mass": 1.5,
       "desc": "Main anti-Orthobro protagonist operating under the Truth Cartel banner. Hosted and co-debated the May 2026 stream pitting Mauler against Andrew Wilson — significant Wood-aligned content hub."
     },
     {
@@ -127,7 +148,9 @@
       "cluster": "blue",
       "size": 16,
       "shape": "dot",
-      "x": 220, "y": -320, "mass": 1,
+      "x": 220,
+      "y": -320,
+      "mass": 1,
       "desc": "Critic of Orthobros. Debated Andrew Wilson in a May 2026 stream hosted by JPuncut, reinforcing the Wood-aligned critique of the Orthobros position."
     },
     {
@@ -137,7 +160,9 @@
       "cluster": "gray",
       "size": 16,
       "shape": "diamond",
-      "x": 0, "y": -280, "mass": 1,
+      "x": 0,
+      "y": -280,
+      "mass": 1,
       "desc": "Consistent neutral commenter. Pushed back on both Dyer and Wood post-debate, questioning both sides' conduct."
     },
     {
@@ -147,7 +172,9 @@
       "cluster": "gray",
       "size": 16,
       "shape": "diamond",
-      "x": -100, "y": -300, "mass": 1,
+      "x": -100,
+      "y": -300,
+      "mass": 1,
       "desc": "Active neutral engager. Consistent neutral activity in Dyer's debate-phase threads without aligning with either faction."
     },
     {
@@ -157,7 +184,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 100, "y": -290, "mass": 1,
+      "x": 100,
+      "y": -290,
+      "mass": 1,
       "desc": "Blocking discussion participant. Commented on Dyer's pattern of mass-blocking critics post-debate."
     },
     {
@@ -167,7 +196,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 220, "y": 260, "mass": 1,
+      "x": 220,
+      "y": 260,
+      "mass": 1,
       "desc": "Active replier in Wood's debate-phase threads. Engaged without strongly committing to either side."
     },
     {
@@ -177,7 +208,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 60, "y": 300, "mass": 1,
+      "x": 60,
+      "y": 300,
+      "mass": 1,
       "desc": "Observed and commented on Dyer's blocking behavior post-debate."
     },
     {
@@ -187,7 +220,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -200, "y": -240, "mass": 1,
+      "x": -200,
+      "y": -240,
+      "mass": 1,
       "desc": "Early critic of Dyer's obsession with conflict, questioning the pattern before the debate phase began."
     },
     {
@@ -197,7 +232,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 180, "y": -200, "mass": 1,
+      "x": 180,
+      "y": -200,
+      "mass": 1,
       "desc": "Active in debate threads around David Wood during the May 13 debate phase."
     },
     {
@@ -207,7 +244,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 260, "y": -160, "mass": 1,
+      "x": 260,
+      "y": -160,
+      "mass": 1,
       "desc": "Posted in David Wood's debate threads on May 13."
     },
     {
@@ -217,7 +256,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -160, "y": 260, "mass": 1,
+      "x": -160,
+      "y": 260,
+      "mass": 1,
       "desc": "Engaged in discussion around Jay Dyer during the May 13 debate phase."
     },
     {
@@ -227,7 +268,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -280, "y": 200, "mass": 1,
+      "x": -280,
+      "y": 200,
+      "mass": 1,
       "desc": "Active commenter in Dyer's threads during the May 13 debate phase."
     },
     {
@@ -237,7 +280,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -320, "y": 80, "mass": 1,
+      "x": -320,
+      "y": 80,
+      "mass": 1,
       "desc": "Provided historical context commentary in Jay Dyer's debate-phase threads."
     },
     {
@@ -247,7 +292,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -100, "y": 340, "mass": 1,
+      "x": -100,
+      "y": 340,
+      "mass": 1,
       "desc": "Active replier in Dyer's threads during the post-debate phase."
     },
     {
@@ -257,7 +304,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 160, "y": 320, "mass": 1,
+      "x": 160,
+      "y": 320,
+      "mass": 1,
       "desc": "Good faith debate participant in Wood's May 13 threads."
     },
     {
@@ -267,7 +316,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -40, "y": -320, "mass": 1,
+      "x": -40,
+      "y": -320,
+      "mass": 1,
       "desc": "Commented on grift claims in Dyer's debate-phase threads."
     },
     {
@@ -277,7 +328,9 @@
       "cluster": "gray",
       "size": 10,
       "shape": "diamond",
-      "x": 120, "y": 360, "mass": 1,
+      "x": 120,
+      "y": 360,
+      "mass": 1,
       "desc": "Low-influence account. Inquirer in Dyer's post-debate threads."
     },
     {
@@ -287,7 +340,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": -500, "y": -80, "mass": 1,
+      "x": -500,
+      "y": -80,
+      "mass": 1,
       "desc": "Reposted Jay Dyer content during the post-debate phase."
     },
     {
@@ -297,7 +352,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": 500, "y": -80, "mass": 1,
+      "x": 500,
+      "y": -80,
+      "mass": 1,
       "desc": "Reposted David Wood content during the post-debate phase."
     },
     {
@@ -307,7 +364,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": -500, "y": 80, "mass": 1,
+      "x": -500,
+      "y": 80,
+      "mass": 1,
       "desc": "Reposted Jay Dyer blocking discussion during the post-debate phase."
     },
     {
@@ -317,7 +376,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": 500, "y": 80, "mass": 1,
+      "x": 500,
+      "y": 80,
+      "mass": 1,
       "desc": "Reposted David Wood support post during the post-debate phase."
     },
     {
@@ -327,7 +388,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": -440, "y": -220, "mass": 1,
+      "x": -440,
+      "y": -220,
+      "mass": 1,
       "desc": "Reposted C2Antiquity's high-engagement Dyer support post."
     },
     {
@@ -337,7 +400,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": -260, "y": 320, "mass": 1,
+      "x": -260,
+      "y": 320,
+      "mass": 1,
       "desc": "Reposted ByJimbob's reaction Space content."
     },
     {
@@ -347,7 +412,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": -420, "y": 180, "mass": 1,
+      "x": -420,
+      "y": 180,
+      "mass": 1,
       "desc": "Reposted blocking discussion content."
     },
     {
@@ -357,7 +424,9 @@
       "cluster": "gray",
       "size": 8,
       "shape": "square",
-      "x": 160, "y": -200, "mass": 1,
+      "x": 160,
+      "y": -200,
+      "mass": 1,
       "desc": "Reposted GodLogic's support post for Wood."
     },
     {
@@ -367,7 +436,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": 380, "y": 220, "mass": 1,
+      "x": 380,
+      "y": 220,
+      "mass": 1,
       "desc": "Criticized Orthodox focus. Quoted by David Wood on May 16 in a post criticizing Eastern Orthodoxy."
     },
     {
@@ -377,7 +448,9 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -200, "y": 310, "mass": 1,
+      "x": -200,
+      "y": 310,
+      "mass": 1,
       "desc": "Publicly asked Jay Dyer why he had been blocked — May 16 post-debate fallout."
     },
     {
@@ -387,291 +460,711 @@
       "cluster": "gray",
       "size": 12,
       "shape": "diamond",
-      "x": -420, "y": 100, "mass": 1,
+      "x": -420,
+      "y": 100,
+      "mass": 1,
       "desc": "Active in theological replies engaging with the Dyer side in post-debate threads (May 16)."
+    },
+    {
+      "id": "inspiringphilosophy",
+      "label": "Inspiring\nPhilosophy",
+      "handle": "@InspiringPhilos",
+      "cluster": "blue",
+      "size": 18,
+      "shape": "dot",
+      "x": 340,
+      "y": 200,
+      "mass": 1.3,
+      "desc": "Michael Jones — philosophy/apologetics YouTuber. Joined David Wood live July 28 with GodLogic and Apostate Prophet; Wood-circle collaborator in the summer phase."
+    },
+    {
+      "id": "joshua_schooping",
+      "label": "Joshua\nSchooping",
+      "handle": "",
+      "cluster": "blue",
+      "size": 14,
+      "shape": "dot",
+      "x": 480,
+      "y": 0,
+      "mass": 1,
+      "desc": "Former Orthodox priest featured on David Wood's June 20 Orthodoxy critique stream series explaining why he left Eastern Orthodoxy — Wood-side content ammunition."
+    },
+    {
+      "id": "trent_horn",
+      "label": "Trent Horn",
+      "handle": "",
+      "cluster": "gray",
+      "size": 14,
+      "shape": "diamond",
+      "x": -40,
+      "y": -360,
+      "mass": 1,
+      "desc": "Catholic apologist. Named target of Jay Dyer's Aug 3–4 stream ('Godlogic & Trent Horn Refuted') — secondary front in the summer content war."
+    },
+    {
+      "id": "facingeast",
+      "label": "FacingEast",
+      "handle": "@FacingEast1",
+      "cluster": "red",
+      "size": 12,
+      "shape": "dot",
+      "x": -240,
+      "y": -280,
+      "mass": 1,
+      "desc": "Orthodox-leaning commentator. Aug 2026 posts amplifying Dyer debate offers to GodLogic and framing Wood/icons debate as exposure of 'grifters'."
     }
   ],
-
   "edges": [
     {
-      "id": "e01", "from": "godlogic_avery", "to": "jay_dyer",
-      "eType": "past_collab", "phase": "pre",
+      "id": "e01",
+      "from": "godlogic_avery",
+      "to": "jay_dyer",
+      "eType": "past_collab",
+      "phase": "pre",
       "ts": "Early May 2026",
       "note": "Joint anti-Islam livestreams — prior collaborative relationship before the schism",
-      "smooth": { "type": "curvedCW", "roundness": 0.3 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.3
+      }
     },
     {
-      "id": "e02", "from": "jay_dyer", "to": "godlogic_avery",
-      "eType": "attacks", "phase": "pre",
+      "id": "e02",
+      "from": "jay_dyer",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "pre",
       "ts": "~May 12, 2026",
       "note": "Motive & grift accusations — catalyst event that triggered the broader conflict",
-      "smooth": { "type": "curvedCCW", "roundness": 0.3 }
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.3
+      }
     },
     {
-      "id": "e03", "from": "jay_dyer", "to": "david_wood",
-      "eType": "attacks", "phase": "pre",
+      "id": "e03",
+      "from": "jay_dyer",
+      "to": "david_wood",
+      "eType": "attacks",
+      "phase": "pre",
       "ts": "May 1–12, 2026",
       "note": "Ongoing criticism and blocking behavior — ecclesiology critique and 'helping Dawah' accusation",
-      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.2
+      }
     },
     {
-      "id": "e04", "from": "jay_dyer", "to": "david_wood",
-      "eType": "attacks", "phase": "post",
+      "id": "e04",
+      "from": "jay_dyer",
+      "to": "david_wood",
+      "eType": "attacks",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Continued attacks and blocking behavior targeting Wood's network post-debate",
-      "smooth": { "type": "curvedCCW", "roundness": 0.25 }
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.25
+      }
     },
     {
-      "id": "e05", "from": "andrew_wilson", "to": "david_wood",
-      "eType": "debates", "phase": "debate",
+      "id": "e05",
+      "from": "andrew_wilson",
+      "to": "david_wood",
+      "eType": "debates",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Live YouTube debate: 'Why Are OrthoBros Helping Jihadis?'"
     },
     {
-      "id": "e06", "from": "byjimbob", "to": "david_wood",
-      "eType": "attacks", "phase": "debate",
+      "id": "e06",
+      "from": "byjimbob",
+      "to": "david_wood",
+      "eType": "attacks",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Multiple reaction Spaces: 'Andrew Wilson Puts Wood In The Chipper' — high-engagement Orthobros content"
     },
     {
-      "id": "e07", "from": "orthodox_elijah", "to": "david_wood",
-      "eType": "attacks", "phase": "debate",
+      "id": "e07",
+      "from": "orthodox_elijah",
+      "to": "david_wood",
+      "eType": "attacks",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Criticized Wood's debate performance — strong Dyer-aligned rebuttal"
     },
     {
-      "id": "e08", "from": "epkon406", "to": "jay_dyer",
-      "eType": "defends", "phase": "debate",
+      "id": "e08",
+      "from": "epkon406",
+      "to": "jay_dyer",
+      "eType": "defends",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Strong Dyer supporter — thread defense across debate and post-debate phases"
     },
     {
-      "id": "e09", "from": "c2antiquity", "to": "jay_dyer",
-      "eType": "defends", "phase": "post",
+      "id": "e09",
+      "from": "c2antiquity",
+      "to": "jay_dyer",
+      "eType": "defends",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "High-engagement support post amplifying Dyer's position"
     },
     {
-      "id": "e10", "from": "godlogic_avery", "to": "david_wood",
-      "eType": "defends", "phase": "post",
+      "id": "e10",
+      "from": "godlogic_avery",
+      "to": "david_wood",
+      "eType": "defends",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "GodLogic supported by Wood — featured in Wood's May 14 post",
-      "smooth": { "type": "curvedCW", "roundness": 0.15 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.15
+      }
     },
     {
-      "id": "e11", "from": "sam_shamoun", "to": "david_wood",
-      "eType": "collaborates", "phase": "pre",
+      "id": "e11",
+      "from": "sam_shamoun",
+      "to": "david_wood",
+      "eType": "collaborates",
+      "phase": "pre",
       "ts": "Long-term",
       "note": "Prominent Evangelical apologist — frequent collaborator mentioned in the debate space",
-      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.2
+      }
     },
     {
-      "id": "e12", "from": "apostate_prophet", "to": "david_wood",
-      "eType": "collaborates", "phase": "pre",
+      "id": "e12",
+      "from": "apostate_prophet",
+      "to": "david_wood",
+      "eType": "collaborates",
+      "phase": "pre",
       "ts": "Long-term",
       "note": "Ex-Muslim apologist — long-term anti-Islam content collaborator with Wood",
-      "smooth": { "type": "curvedCCW", "roundness": 0.2 }
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.2
+      }
     },
     {
-      "id": "e13", "from": "cinemanarchism", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e13",
+      "from": "cinemanarchism",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Neutral pushback questioning Dyer's post-debate behavior"
     },
     {
-      "id": "e14", "from": "cinemanarchism", "to": "david_wood",
-      "eType": "questions", "phase": "post",
+      "id": "e14",
+      "from": "cinemanarchism",
+      "to": "david_wood",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Neutral pushback questioning Wood's framing post-debate"
     },
     {
-      "id": "e15", "from": "icxc_zachariah", "to": "jay_dyer",
-      "eType": "questions", "phase": "debate",
+      "id": "e15",
+      "from": "icxc_zachariah",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Consistent neutral activity in Dyer's threads during the debate phase"
     },
     {
-      "id": "e16", "from": "garycoleman", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e16",
+      "from": "garycoleman",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Commented on Dyer's pattern of mass-blocking critics"
     },
     {
-      "id": "e17", "from": "vikingprime", "to": "david_wood",
-      "eType": "questions", "phase": "debate",
+      "id": "e17",
+      "from": "vikingprime",
+      "to": "david_wood",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Active replier in Wood's debate threads without strong alignment"
     },
     {
-      "id": "e18", "from": "obiwan_sunobi", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e18",
+      "from": "obiwan_sunobi",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Commented on Dyer's blocking behavior post-debate"
     },
     {
-      "id": "e19", "from": "d_bahler", "to": "jay_dyer",
-      "eType": "questions", "phase": "pre",
+      "id": "e19",
+      "from": "d_bahler",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "pre",
       "ts": "May 12, 2026",
       "note": "Critic of Dyer's obsession with conflict — early pre-debate skepticism"
     },
     {
-      "id": "e20", "from": "mormonger", "to": "david_wood",
-      "eType": "questions", "phase": "debate",
+      "id": "e20",
+      "from": "mormonger",
+      "to": "david_wood",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Active in debate threads around Wood"
     },
     {
-      "id": "e21", "from": "conny_trades", "to": "david_wood",
-      "eType": "questions", "phase": "debate",
+      "id": "e21",
+      "from": "conny_trades",
+      "to": "david_wood",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Posted in Wood's debate threads"
     },
     {
-      "id": "e22", "from": "justinphoster", "to": "jay_dyer",
-      "eType": "questions", "phase": "debate",
+      "id": "e22",
+      "from": "justinphoster",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Engaged in discussion around Dyer"
     },
     {
-      "id": "e23", "from": "onedrunkpirate", "to": "jay_dyer",
-      "eType": "questions", "phase": "debate",
+      "id": "e23",
+      "from": "onedrunkpirate",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Active commenter in Dyer's debate threads"
     },
     {
-      "id": "e24", "from": "thomasg130", "to": "jay_dyer",
-      "eType": "questions", "phase": "debate",
+      "id": "e24",
+      "from": "thomasg130",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Historical context comment in Dyer's threads"
     },
     {
-      "id": "e25", "from": "revrush", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e25",
+      "from": "revrush",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Active replier in Dyer's post-debate threads"
     },
     {
-      "id": "e26", "from": "deucebigalow", "to": "david_wood",
-      "eType": "questions", "phase": "debate",
+      "id": "e26",
+      "from": "deucebigalow",
+      "to": "david_wood",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Good faith debate participant in Wood's threads"
     },
     {
-      "id": "e27", "from": "jewbusinessguy", "to": "jay_dyer",
-      "eType": "questions", "phase": "debate",
+      "id": "e27",
+      "from": "jewbusinessguy",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Commented on grift claims in Dyer's threads"
     },
     {
-      "id": "e28", "from": "altaccount5674", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e28",
+      "from": "altaccount5674",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Inquirer in Dyer's post-debate threads"
     },
     {
-      "id": "e29", "from": "reposter_26", "to": "jay_dyer",
-      "eType": "repost", "phase": "post",
+      "id": "e29",
+      "from": "reposter_26",
+      "to": "jay_dyer",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted Jay Dyer content"
     },
     {
-      "id": "e30", "from": "reposter_27", "to": "david_wood",
-      "eType": "repost", "phase": "post",
+      "id": "e30",
+      "from": "reposter_27",
+      "to": "david_wood",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted David Wood content"
     },
     {
-      "id": "e31", "from": "reposter_28", "to": "jay_dyer",
-      "eType": "repost", "phase": "post",
+      "id": "e31",
+      "from": "reposter_28",
+      "to": "jay_dyer",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted Jay Dyer blocking discussion"
     },
     {
-      "id": "e32", "from": "reposter_29", "to": "david_wood",
-      "eType": "repost", "phase": "post",
+      "id": "e32",
+      "from": "reposter_29",
+      "to": "david_wood",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted David Wood support post"
     },
     {
-      "id": "e33", "from": "reposter_30", "to": "c2antiquity",
-      "eType": "repost", "phase": "post",
+      "id": "e33",
+      "from": "reposter_30",
+      "to": "c2antiquity",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted C2Antiquity's high-engagement Dyer support post"
     },
     {
-      "id": "e34", "from": "reposter_31", "to": "byjimbob",
-      "eType": "repost", "phase": "debate",
+      "id": "e34",
+      "from": "reposter_31",
+      "to": "byjimbob",
+      "eType": "repost",
+      "phase": "debate",
       "ts": "May 13, 2026",
       "note": "Reposted ByJimbob's reaction Space content"
     },
     {
-      "id": "e35", "from": "reposter_32", "to": "jay_dyer",
-      "eType": "repost", "phase": "post",
+      "id": "e35",
+      "from": "reposter_32",
+      "to": "jay_dyer",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted blocking discussion content"
     },
     {
-      "id": "e36", "from": "reposter_33", "to": "godlogic_avery",
-      "eType": "repost", "phase": "post",
+      "id": "e36",
+      "from": "reposter_33",
+      "to": "godlogic_avery",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 14, 2026",
       "note": "Reposted GodLogic's support post for Wood"
     },
     {
-      "id": "e37", "from": "david_wood", "to": "al_j82",
-      "eType": "quotes", "phase": "post",
+      "id": "e37",
+      "from": "david_wood",
+      "to": "al_j82",
+      "eType": "quotes",
+      "phase": "post",
       "ts": "May 16, 2026",
       "note": "David Wood quoted AL_J82 criticizing Eastern Orthodoxy",
-      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.2
+      }
     },
     {
-      "id": "e38", "from": "gallysback", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e38",
+      "from": "gallysback",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 16, 2026",
       "note": "Gallysback publicly asked Jay Dyer why he was blocked"
     },
     {
-      "id": "e39", "from": "isuch_lenoob", "to": "jay_dyer",
-      "eType": "questions", "phase": "post",
+      "id": "e39",
+      "from": "isuch_lenoob",
+      "to": "jay_dyer",
+      "eType": "questions",
+      "phase": "post",
       "ts": "May 16, 2026",
       "note": "isuch_lenoob engaged in theological debate with the Dyer side"
     },
     {
-      "id": "e40", "from": "vikingprime", "to": "jay_dyer",
-      "eType": "repost", "phase": "post",
+      "id": "e40",
+      "from": "vikingprime",
+      "to": "jay_dyer",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 16, 2026",
       "note": "Reposted Jay Dyer's provocative posts"
     },
     {
-      "id": "e41", "from": "mormonger", "to": "david_wood",
-      "eType": "repost", "phase": "post",
+      "id": "e41",
+      "from": "mormonger",
+      "to": "david_wood",
+      "eType": "repost",
+      "phase": "post",
       "ts": "May 16, 2026",
       "note": "Reposted David Wood's response to Orthodoxy criticism"
     },
     {
-      "id": "e42", "from": "jpuncut", "to": "david_wood",
-      "eType": "collaborates", "phase": "post",
+      "id": "e42",
+      "from": "jpuncut",
+      "to": "david_wood",
+      "eType": "collaborates",
+      "phase": "post",
       "ts": "May 2026",
       "note": "JPuncut (Truth Cartel) aligned with David Wood's anti-Orthobros campaign — hosted streams amplifying Wood-side critique",
-      "smooth": { "type": "curvedCW", "roundness": 0.2 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.2
+      }
     },
     {
-      "id": "e43", "from": "jpuncut", "to": "mauler",
-      "eType": "collaborates", "phase": "post",
+      "id": "e43",
+      "from": "jpuncut",
+      "to": "mauler",
+      "eType": "collaborates",
+      "phase": "post",
       "ts": "May 2026",
       "note": "JPuncut hosted Mauler for the debate against Andrew Wilson on the Truth Cartel channel"
     },
     {
-      "id": "e44", "from": "mauler", "to": "andrew_wilson",
-      "eType": "debates", "phase": "post",
+      "id": "e44",
+      "from": "mauler",
+      "to": "andrew_wilson",
+      "eType": "debates",
+      "phase": "post",
       "ts": "May 2026",
       "note": "Mauler debated Andrew Wilson in a JPuncut-hosted stream — a second front in the Orthobros debate"
     },
     {
-      "id": "e45", "from": "jpuncut", "to": "andrew_wilson",
-      "eType": "attacks", "phase": "post",
+      "id": "e45",
+      "from": "jpuncut",
+      "to": "andrew_wilson",
+      "eType": "attacks",
+      "phase": "post",
       "ts": "May 2026",
       "note": "JPuncut's Truth Cartel channel framed the Mauler vs Andrew Wilson debate as anti-Orthobros content",
-      "smooth": { "type": "curvedCW", "roundness": 0.25 }
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.25
+      }
+    },
+    {
+      "id": "e46",
+      "from": "jay_dyer",
+      "to": "david_wood",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "June 14, 2026",
+      "note": "Dyer: Wood can't articulate Protestant basics / just learned Orthodoxy, but wants icons debate after declining earlier offers — frames Wood as bad-faith",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.15
+      }
+    },
+    {
+      "id": "e47",
+      "from": "david_wood",
+      "to": "jay_dyer",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "June 20, 2026",
+      "note": "Wood hosts Orthodoxy / Orthobros critique series; invites Orthobros to defend; features Joshua Schooping (ex-Orthodox priest)",
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.15
+      }
+    },
+    {
+      "id": "e48",
+      "from": "joshua_schooping",
+      "to": "david_wood",
+      "eType": "collaborates",
+      "phase": "post",
+      "ts": "June 20, 2026",
+      "note": "Schooping appears on Wood stream explaining exit from Eastern Orthodoxy"
+    },
+    {
+      "id": "e49",
+      "from": "david_wood",
+      "to": "jay_dyer",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "June 26, 2026",
+      "note": "Wood amplifies Noah Jefferson 'Orthobro cult' critique and claims Orthobros are 'brainwashed' re: Dyer",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.28
+      }
+    },
+    {
+      "id": "e50",
+      "from": "david_wood",
+      "to": "sam_shamoun",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "July 26–27, 2026",
+      "note": "Wood: Sam calls Avery a grifter; Muslims cheer; Sam allegedly teams with DawahBros and OrthoBros to 'expose' GodLogic — major Wood-circle fracture",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.22
+      }
+    },
+    {
+      "id": "e51",
+      "from": "sam_shamoun",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "July 26–30, 2026",
+      "note": "Sam Shamoun public attacks on GodLogic (grifter / disobedience claims); widely circulated as a summer flashpoint",
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.2
+      }
+    },
+    {
+      "id": "e52",
+      "from": "david_wood",
+      "to": "godlogic_avery",
+      "eType": "defends",
+      "phase": "post",
+      "ts": "July 26–28, 2026",
+      "note": "Wood defends Avery against Sam and Orthobros-aligned pressure; continues joint streaming",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.18
+      }
+    },
+    {
+      "id": "e53",
+      "from": "david_wood",
+      "to": "inspiringphilosophy",
+      "eType": "collaborates",
+      "phase": "post",
+      "ts": "July 28, 2026",
+      "note": "Wood LIVE with InspiringPhilosophy, GodLogic, Apostate Prophet — consolidated Wood-circle response stream"
+    },
+    {
+      "id": "e54",
+      "from": "godlogic_avery",
+      "to": "inspiringphilosophy",
+      "eType": "collaborates",
+      "phase": "post",
+      "ts": "July 28, 2026",
+      "note": "GodLogic co-appears on Wood multi-apologist live with IP and Apostate Prophet"
+    },
+    {
+      "id": "e55",
+      "from": "apostate_prophet",
+      "to": "david_wood",
+      "eType": "collaborates",
+      "phase": "post",
+      "ts": "July 28, 2026",
+      "note": "Apostate Prophet on Wood live with GodLogic and InspiringPhilosophy"
+    },
+    {
+      "id": "e56",
+      "from": "jay_dyer",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "August 2, 2026",
+      "note": "Dyer: Sam Shamoun 'came around' that GodLogic is a grifter; metrics comparison vs GodLogic; continued public pressure",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.32
+      }
+    },
+    {
+      "id": "e57",
+      "from": "jay_dyer",
+      "to": "sam_shamoun",
+      "eType": "defends",
+      "phase": "post",
+      "ts": "August 2, 2026",
+      "note": "Dyer publicly endorses Sam's turn against GodLogic — temporary Orthobros–Shamoun alignment signal",
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.25
+      }
+    },
+    {
+      "id": "e58",
+      "from": "jay_dyer",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "August 3–4, 2026",
+      "note": "Dyer live stream: 'The Spain ISSUE, Godlogic & Trent Horn Refuted…' — major content attack on Avery",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.38
+      }
+    },
+    {
+      "id": "e59",
+      "from": "jay_dyer",
+      "to": "trent_horn",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "August 3–4, 2026",
+      "note": "Same stream pairs Trent Horn with GodLogic as targets of Dyer's critique"
+    },
+    {
+      "id": "e60",
+      "from": "c2antiquity",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "August 3, 2026",
+      "note": "C2Antiquity streams/posts debunking GodLogic 'Orthobros worse than Muslims' / churchless apologetics framing",
+      "smooth": {
+        "type": "curvedCCW",
+        "roundness": 0.22
+      }
+    },
+    {
+      "id": "e61",
+      "from": "facingeast",
+      "to": "jay_dyer",
+      "eType": "defends",
+      "phase": "post",
+      "ts": "August 2, 2026",
+      "note": "FacingEast amplifies Dyer debate offers to GodLogic and icons-debate narrative vs Wood"
+    },
+    {
+      "id": "e62",
+      "from": "facingeast",
+      "to": "godlogic_avery",
+      "eType": "attacks",
+      "phase": "post",
+      "ts": "August 2, 2026",
+      "note": "FacingEast: pressure on Avery to engage; frames silence as evidence of grift"
+    },
+    {
+      "id": "e63",
+      "from": "david_wood",
+      "to": "jay_dyer",
+      "eType": "debates",
+      "phase": "post",
+      "ts": "Summer 2026 (scheduled)",
+      "note": "Public discourse around a forthcoming Wood vs Dyer icons debate (community reports pointing to autumn date) — escalates stakes beyond May proxy debate",
+      "smooth": {
+        "type": "curvedCW",
+        "roundness": 0.08
+      }
     }
   ]
 }
