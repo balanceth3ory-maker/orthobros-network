@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T22:00:00Z",
+    "lastUpdated": "2026-08-03T23:00:00Z",
     "source": "Public X posts & YouTube only (data.json is sole source of truth; Google Sheet retired)",
     "phases": {
       "pre": "Pre-Debate (May 1–12)",
@@ -19,7 +19,8 @@
       "repost": "Amplification via repost",
       "quotes": "Quote-tweet engagement"
     },
-    "notes": "Direction is always source → target. Cluster is a snapshot of primary camp alignment at last update; edges capture history including realignments."
+    "notes": "Direction is always source → target. Cluster is a snapshot of primary camp alignment at last update; edges capture history including realignments.",
+    "avatars": "Nodes with a valid X handle (or optional 'avatar' username / 'image' URL) render as circular profile photos via unavatar.io. Nodes without handles keep geometric shapes."
   },
   "nodes": [
     {
@@ -505,14 +506,14 @@
     {
       "id": "trent_horn",
       "label": "Trent Horn",
-      "handle": "",
+      "handle": "@Trent_Horn",
       "cluster": "gray",
       "size": 14,
       "shape": "diamond",
       "x": -40,
       "y": -360,
       "mass": 1,
-      "desc": "Catholic apologist. Passive target only — named in Dyer's Aug 3–4 stream title alongside GodLogic; no coded outgoing ties in this map."
+      "desc": "Catholic apologist (@Trent_Horn). Passive target named in Dyer's Aug 3–4 stream ('Godlogic & Trent Horn Refuted'); no coded outgoing ties in this map."
     },
     {
       "id": "facingeast",
