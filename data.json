@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T23:30:00Z",
+    "lastUpdated": "2026-08-03T23:45:00Z",
     "source": "Public X posts & YouTube only (data.json is sole source of truth; Google Sheet retired)",
     "phases": {
       "pre": "Pre-Debate (May 1–12)",
@@ -158,7 +158,7 @@
     {
       "id": "mauler",
       "label": "Mauler",
-      "handle": "",
+      "handle": "@MauLer93",
       "cluster": "blue",
       "size": 16,
       "shape": "dot",
